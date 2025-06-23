@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drawing Feature Test</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: var(--bg-body, #000);
+      color: var(--text-primary, #fff);
+    }
+
+    .test-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .modal-test {
+      background: var(--bg-secondary, #262626);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .test-button {
+      background: var(--primary-color, #6366f1);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .test-button:hover {
+      background: var(--primary-dark, #4f46e5);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="test-container">
+    <h1>Drawing Feature Test</h1>
+    <p>This page tests the canvas drawing functionality for keyframe notes.</p>
+
+    <button class="test-button" onclick="loadTestImage()">Load Test Image</button>
+    <button class="test-button" onclick="testDrawingFeature()">Test Drawing</button>
+    <button class="test-button" onclick="openMainApp()">Open Main App</button>
+
+    <div class="modal-test">
+      <h3>Drawing Test Area</h3>
+
+      <!-- Image Container with Canvas Overlay -->
+      <div class="image-container" id="imageContainer">
+        <img src="/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0001.jpg" alt="Test Keyframe" id="modalImage"
+          style="max-width: 400px; max-height: 300px;" />
+        <canvas id="drawingCanvas" class="drawing-canvas hidden"></canvas>
+      </div>
+
+      <!-- Drawing Controls -->
+      <div class="drawing-controls" id="drawingControls">
+        <button class="drawing-btn" id="toggleDrawingBtn" title="Toggle drawing mode">
+          <i class="fas fa-pencil-alt"></i>
+          Draw
+        </button>
+        <button class="drawing-btn" id="clearDrawingBtn" title="Clear all drawings">
+          <i class="fas fa-eraser"></i>
+          Clear
+        </button>
+        <button class="drawing-btn" id="toggleNotesBtn" title="Toggle drawing visibility">
+          <i class="fas fa-eye"></i>
+          Show Notes
+        </button>
+        <div class="drawing-settings">
+          <label for="brushSize">Size:</label>
+          <input type="range" id="brushSize" min="1" max="10" value="3" class="brush-slider">
+          <label for="brushColor">Color:</label>
+          <input type="color" id="brushColor" value="#ff0000" class="color-picker">
+        </div>
+      </div>
+    </div>
+
+    <div id="result"
+      style="margin-top: 20px; padding: 15px; background: var(--bg-primary, #1a1a1a); border-radius: 5px;">
+      Ready to test drawing functionality...
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="drawing.js"></script>
+  <script>
+    let drawingModule;
+
+    function loadTestImage() {
+      const img = document.getElementById('modalImage');
+      img.onload = function () {
+        if (drawingModule) {
+          drawingModule.onImageLoad();
+        }
+        updateResult('Test image loaded successfully');
+      };
+      img.onerror = function () {
+        updateResult('Failed to load test image - using placeholder');
+        // Use a placeholder if the keyframe doesn't exist
+        img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAw' +
+          'IiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSI' +
+          'gaGVpZ2h0PSIxMDAlIiBmaWxsPSIjY2NjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbC' +
+          'IgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9IjAuM2VtIj5UZXN0IEtleWZyYW1lPC90ZXh0Pjwvc3ZnPg==';
+      };
+    }
+
+    function testDrawingFeature() {
+      if (!drawingModule) {
+        drawingModule = new KeyframeDrawing();
+        drawingModule.setCurrentKeyframe('test_keyframe_001.jpg');
+        updateResult('Drawing module initialized. Try drawing on the image!');
+      } else {
+        updateResult('Drawing module already initialized');
+      }
+    }
+
+    function openMainApp() {
+      window.open('/', '_blank');
+    }
+
+    function updateResult(message) {
+      document.getElementById('result').textContent = message;
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', function () {
+      loadTestImage();
+      updateResult('Page loaded. Click "Test Drawing" to start.');
+    });
+  </script>
+</body>
+
+</html>

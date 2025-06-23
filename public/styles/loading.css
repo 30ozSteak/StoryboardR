@@ -1,0 +1,472 @@
+/* ===== MODERN LOADING STYLES ===== */
+/* Loading Indicators, Progress Bars, and Loading States */
+
+/* === Modern Loading Overlay === */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.loading-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* === Beautiful Loading Spinner === */
+.loading-spinner {
+  width: 4rem;
+  height: 4rem;
+  border: 4px solid var(--bg-secondary);
+  border-top: 4px solid var(--primary);
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+  position: relative;
+}
+
+.loading-spinner::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--info);
+  border-radius: var(--radius-full);
+  animation: spin 2s linear infinite reverse;
+}
+
+/* === Advanced Loading Spinner === */
+.loading-advanced {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  background: var(--bg-primary);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-primary);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.loading-dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.loading-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+  animation: bounce 1.4s ease-in-out infinite both;
+}
+
+.loading-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0s;
+}
+
+@keyframes bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* === Loading Text === */
+.loading-text {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.loading-subtext {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: var(--line-height-relaxed);
+}
+
+/* === Modern Progress Bar === */
+.progress-container {
+  width: 100%;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  box-shadow: var(--shadow-inner);
+  margin: var(--space-4) 0;
+  position: relative;
+}
+
+.progress-bar {
+  height: 0.75rem;
+  background: linear-gradient(90deg, var(--primary-500), var(--primary-400), var(--info-500));
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced progress bar for different states */
+.progress-bar.success {
+  background: linear-gradient(90deg, var(--success-500), var(--success-600));
+}
+
+.progress-bar.error {
+  background: linear-gradient(90deg, var(--error-500), var(--error-600));
+}
+
+.progress-bar.warning {
+  background: linear-gradient(90deg, var(--warning-500), var(--warning-600));
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-2);
+}
+
+.progress-percentage {
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary);
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+/* Enhanced progress with steps */
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  position: relative;
+}
+
+.progress-step.active {
+  color: var(--primary);
+}
+
+.progress-step.completed {
+  color: var(--success);
+}
+
+.progress-step-icon {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  transition: all var(--transition-fast);
+}
+
+.progress-step.active .progress-step-icon {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.progress-step.completed .progress-step-icon {
+  border-color: var(--success);
+  background: var(--success);
+  color: white;
+}
+
+/* === Pulse Loading Effect === */
+.loading-pulse {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-pulse::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* === Card Loading Skeleton === */
+.card-skeleton {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-skeleton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  animation: shimmer 2s infinite;
+}
+
+.skeleton-line {
+  height: 1rem;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-base);
+  margin-bottom: var(--space-3);
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+.skeleton-line.medium {
+  width: 80%;
+}
+
+.skeleton-line.long {
+  width: 100%;
+}
+
+/* === Button Loading States === */
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.btn-loading .btn-text {
+  opacity: 0;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+
+/* === Processing States === */
+.processing-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  padding: var(--space-2) var(--space-4);
+  background: var(--info-bg);
+  border: 1px solid var(--info-border);
+  border-radius: var(--radius-full);
+}
+
+.processing-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--bg-secondary);
+  border-top: 2px solid var(--info);
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+
+/* === Status Loading === */
+.status-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background: var(--warning-bg);
+  color: var(--warning);
+  border: 1px solid var(--warning-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.status-loading i {
+  animation: spin 1s linear infinite;
+}
+
+/* === Image Loading === */
+.image-loading {
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+.image-placeholder {
+  color: var(--text-muted);
+  font-size: var(--font-size-3xl);
+}
+
+/* === Animations === */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive Loading === */
+@media (max-width: 768px) {
+  .loading-advanced {
+    padding: var(--space-6);
+    margin: 0 var(--space-4);
+  }
+
+  .loading-spinner {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .loading-text {
+    font-size: var(--font-size-base);
+  }
+
+  .progress-container {
+    margin: var(--space-3) 0;
+  }
+}
+
+/* === Accessibility === */
+@media (prefers-reduced-motion: reduce) {
+
+  .loading-spinner,
+  .loading-spinner::before,
+  .loading-dot,
+  .processing-spinner,
+  .status-loading i {
+    animation-duration: 2s;
+  }
+
+  .progress-bar::before,
+  .loading-pulse::before,
+  .card-skeleton::before,
+  .image-loading::before {
+    animation: none;
+  }
+}
+
+/* === Print Styles === */
+@media print {
+
+  .loading-overlay,
+  .loading-spinner,
+  .loading-advanced,
+  .processing-indicator,
+  .status-loading {
+    display: none !important;
+  }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storyboard Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .test-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .test-button {
+      background: #6366f1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .test-button:hover {
+      background: #4f46e5;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="test-container">
+    <h1>Storyboard View Test</h1>
+    <p>This page tests the storyboard functionality independently.</p>
+
+    <button class="test-button" onclick="openMainApp()">Open Main App</button>
+    <button class="test-button" onclick="testStoryboardElements()">Test Element Access</button>
+
+    <div id="result" class="result">
+      Click "Test Element Access" to check if storyboard elements are accessible.
+    </div>
+  </div>
+
+  <script>
+    function openMainApp() {
+      window.open('http://localhost:3000', '_blank');
+    }
+
+    function testStoryboardElements() {
+      const result = document.getElementById('result');
+
+      // Test if we can access the main app in a new window
+      const testWindow = window.open('http://localhost:3000', 'testWindow');
+
+      setTimeout(() => {
+        try {
+          if (testWindow && testWindow.app) {
+            const app = testWindow.app;
+            result.innerHTML = `
+                            <h3>App Instance Found!</h3>
+                            <p><strong>Storyboard Container:</strong> ${app.storyboardContainer ? 'Found' : 'Not found'}</p>
+                            <p><strong>Gallery Container:</strong> ${app.galleryContainer ? 'Found' : 'Not found'}</p>
+                            <p><strong>Gallery Children:</strong> ${app.gallery ? app.gallery.children.length : 'Gallery not found'}</p>
+                        `;
+
+            if (app.gallery && app.gallery.children.length > 0) {
+              result.innerHTML += `
+                                <button class="test-button" onclick="testWindow.app.switchView('storyboard')">Switch to Storyboard</button>
+                                <button class="test-button" onclick="testWindow.app.switchView('gallery')">Switch to Gallery</button>
+                            `;
+            } else {
+              result.innerHTML += '<p>No keyframes found. Please extract some keyframes first.</p>';
+            }
+          } else {
+            result.innerHTML = '<p>Could not access app instance. Make sure the main app is loaded.</p>';
+          }
+        } catch (error) {
+          result.innerHTML = `<p>Error: ${error.message}</p>`;
+        }
+      }, 2000);
+    }
+  </script>
+</body>
+
+</html>

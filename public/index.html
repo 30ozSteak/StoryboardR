@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Keyframes Extractor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-top">
+                    <!-- Theme toggle moved to footer -->
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-card">
+                    <h2 class="section-title">Extract Keyframes</h2>
+                    <p class="section-description">
+                        Paste a video URL or upload a video file to extract keyframes
+                    </p> <!-- Tab Navigation -->
+                    <div class="tab-nav">
+                        <button class="tab-btn active" data-tab="url">
+                            <i class="fas fa-link"></i>
+                            Video URL
+                        </button>
+                        <button class="tab-btn" data-tab="upload">
+                            <i class="fas fa-upload"></i>
+                            Upload File
+                        </button>
+                        <button class="tab-btn" data-tab="settings">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </button>
+                    </div>
+
+                    <!-- URL Tab Content -->
+                    <div class="tab-content active" id="urlTab">
+                        <form class="url-form" id="urlForm">
+                            <div class="input-group">
+                                <input type="url" id="videoUrl"
+                                    placeholder="https://youtube.com/watch?v=... or https://example.com/video.mp4"
+                                    class="url-input" required />
+                                <button type="submit" class="submit-btn" id="urlSubmitBtn">
+                                    <i class="fas fa-play"></i>
+                                    Extract Keyframes
+                                </button>
+                            </div>
+
+                            <!-- Keyframe Options -->
+                            <div class="keyframe-options">
+                                <div class="option-group">
+                                    <label for="urlMaxFrames" class="option-label">
+                                        <i class="fas fa-image"></i>
+                                        Maximum Keyframes
+                                    </label>
+                                    <select id="urlMaxFrames" class="option-select">
+                                        <option value="25">25 frames</option>
+                                        <option value="50" selected>50 frames</option>
+                                        <option value="100">100 frames</option>
+                                        <option value="200">200 frames</option>
+                                        <option value="500">500 frames</option>
+                                        <option value="0">All keyframes</option>
+                                    </select>
+                                </div>
+                                <div class="option-group">
+                                    <label for="urlIncludeLastFrame" class="option-label">
+                                        <input type="checkbox" id="urlIncludeLastFrame" checked>
+                                        Include final frame
+                                        <small
+                                            style="display: block; color: var(--text-secondary); font-weight: normal; margin-top: 0.25rem;">
+                                            Ensures the last frame is always included when limiting frames
+                                        </small>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <p class="input-hint">
+                                <i class="fas fa-info-circle"></i>
+                                Supports YouTube, Vimeo, direct video links (MP4, AVI, MOV, etc.)<br>
+                                <small>Note: Age-restricted or private videos may not work</small>
+                            </p>
+                        </form>
+                    </div>
+
+                    <!-- Upload Tab Content -->
+                    <div class="tab-content" id="uploadTab">
+                        <form class="upload-form" id="uploadForm">
+                            <div class="file-drop-area" id="fileDropArea">
+                                <div class="file-drop-content">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p class="drop-text">Drag & drop your video here</p>
+                                    <p class="drop-subtext">or click to browse</p>
+                                    <input type="file" id="videoFile" accept="video/*" class="file-input" />
+                                </div>
+                            </div>
+
+                            <!-- Keyframe Options -->
+                            <div class="keyframe-options">
+                                <div class="option-group">
+                                    <label for="uploadMaxFrames" class="option-label">
+                                        <i class="fas fa-image"></i>
+                                        Maximum Keyframes
+                                    </label>
+                                    <select id="uploadMaxFrames" class="option-select">
+                                        <option value="25">25 frames</option>
+                                        <option value="50" selected>50 frames</option>
+                                        <option value="100">100 frames</option>
+                                        <option value="200">200 frames</option>
+                                        <option value="500">500 frames</option>
+                                        <option value="0">All keyframes</option>
+                                    </select>
+                                </div>
+                                <div class="option-group">
+                                    <label for="uploadIncludeLastFrame" class="option-label">
+                                        <input type="checkbox" id="uploadIncludeLastFrame" checked>
+                                        Include final frame
+                                        <small
+                                            style="display: block; color: var(--text-secondary); font-weight: normal; margin-top: 0.25rem;">
+                                            Ensures the last frame is always included when limiting frames
+                                        </small>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="uploadSubmitBtn" disabled>
+                                <i class="fas fa-play"></i>
+                                Extract Keyframes
+                            </button>
+                            <p class="input-hint">
+                                <i class="fas fa-info-circle"></i>
+                                Supported formats: MP4, AVI, MOV, WMV, FLV, WebM, MKV (max 100MB)
+                            </p>
+                        </form>
+                    </div>
+
+                    <!-- Settings Tab Content -->
+                    <div class="tab-content" id="settingsTab">
+                        <div class="settings-section">
+                            <h3 class="settings-title">
+                                <i class="fas fa-cookie-bite"></i>
+                                YouTube Authentication
+                            </h3>
+                            <p class="settings-description">
+                                Upload YouTube cookies to access age-restricted or private videos you have permission to
+                                view.
+                            </p>
+
+                            <div class="cookie-status" id="cookieStatus">
+                                <div class="status-indicator" id="statusIndicator">
+                                    <i class="fas fa-circle"></i>
+                                    <span id="statusText">Checking...</span>
+                                </div>
+                            </div>
+
+                            <div class="cookie-upload-area" id="cookieUploadArea">
+                                <div class="cookie-upload-content">
+                                    <i class="fas fa-file-upload"></i>
+                                    <h4>Upload Cookie File</h4>
+                                    <p>Export your YouTube cookies and upload the .txt file here</p>
+                                    <button type="button" class="submit-btn" id="uploadCookieBtn" disabled>
+                                        <i class="fas fa-upload"></i>
+                                        Upload Cookies
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="cookie-actions" id="cookieActions" style="display: none;">
+                                <button type="button" class="submit-btn secondary" id="clearCookiesBtn">
+                                    <i class="fas fa-trash"></i>
+                                    Clear Cookies
+                                </button>
+                            </div>
+
+                            <div class="help-section">
+                                <details class="help-details">
+                                    <summary>How to export YouTube cookies</summary>
+                                    <div class="help-content">
+                                        <ol>
+                                            <li>Install a browser extension like "Get cookies.txt LOCALLY" or
+                                                "cookies.txt"</li>
+                                            <li>Go to YouTube.com and make sure you're signed in</li>
+                                            <li>Use the extension to export cookies for youtube.com</li>
+                                            <li>Save the file as cookies.txt and upload it here</li>
+                                        </ol>
+                                        <p><strong>Privacy & Security:</strong> This method safely exports cookies
+                                            without requiring system passwords or keychain access. Cookies are stored
+                                            locally on this server and used only for video downloads.</p>
+                                        <p><strong>Note:</strong> For security reasons, we don't automatically extract
+                                            cookies from your browser to avoid system permission prompts.</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section class="loading-section hidden" id="loadingSection">
+                <div class="loading-card">
+                    <div class="loading-content">
+                        <div class="loading-spinner">
+                            <div class="spinner"></div>
+                        </div>
+                        <h3 class="loading-title">Processing Video</h3>
+                        <p class="loading-text" id="loadingText">Initializing...</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-percentage" id="progressPercentage">0%</div>
+                    </div>
+                    <button class="cancel-btn" id="cancelBtn">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="resultsSection">
+                <div class="results-header">
+                    <div class="results-header-top">
+                        <h2 class="section-title" id="sectionTitle">
+                            StoryboardR
+                        </h2>
+                        <!-- Theme toggle moved to footer -->
+                    </div>
+                    <div class="results-header-bottom">
+                        <div class="results-info">
+                            <span class="frame-count" id="frameCount">0 frames</span>
+                            <div class="view-toggle">
+                                <button class="view-btn active" id="galleryViewBtn" data-view="gallery">
+                                    <i class="fas fa-th"></i>
+                                    Gallery
+                                </button>
+                                <button class="view-btn" id="storyboardViewBtn" data-view="storyboard">
+                                    <i class="fas fa-list"></i>
+                                    Storyboard
+                                </button>
+                            </div>
+                        </div>
+                        <div class="results-actions">
+                            <button class="action-btn secondary" id="backToProjectsBtn">
+                                <i class="fas fa-arrow-left"></i>
+                                Projects
+                            </button>
+                            <button class="action-btn" id="saveProjectBtn">
+                                <i class="fas fa-save"></i>
+                                Save Project
+                            </button>
+                            <button class="action-btn" id="downloadAllBtn">
+                                <i class="fas fa-download"></i>
+                                Download All
+                            </button>
+                            <button class="action-btn secondary" id="newExtractionBtn">
+                                <i class="fas fa-plus"></i>
+                                New Extraction
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bulk Actions Container -->
+                <div class="bulk-actions-container">
+                    <div class="selection-info hidden" id="selectionInfo">
+                        <span class="selected-count" id="selectedCount">0 selected</span>
+                        <div class="bulk-actions">
+                            <button class="action-btn small" id="selectAllBtn">
+                                <i class="fas fa-check-square"></i>
+                                Select All
+                            </button>
+                            <button class="action-btn small secondary" id="deselectAllBtn">
+                                <i class="fas fa-square"></i>
+                                Deselect All
+                            </button>
+                            <button class="action-btn small primary" id="addKeyframeBtn">
+                                <i class="fas fa-copy"></i>
+                                Clone Selected
+                            </button>
+                            <button class="action-btn small secondary" id="addNotesBtn">
+                                <i class="fas fa-sticky-note"></i>
+                                Add Notes
+                            </button>
+                            <button class="action-btn small danger" id="deleteSelectedBtn">
+                                <i class="fas fa-trash"></i>
+                                Delete Selected
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Container -->
+                <div class="gallery-container" id="galleryContainer">
+                    <div class="gallery" id="gallery">
+                        <!-- Keyframes will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Storyboard Container -->
+                <div class="storyboard-container hidden" id="storyboardContainer">
+                    <div class="storyboard-sidebar" id="storyboardSidebar">
+                        <div class="storyboard-frames" id="storyboardFrames">
+                            <!-- Frame thumbnails will be dynamically inserted here -->
+                        </div>
+                    </div>
+                    <div class="storyboard-main" id="storyboardMain">
+                        <div class="main-frame-container" id="mainFrameContainer">
+                            <div class="main-frame-placeholder">
+                                <i class="fas fa-image"></i>
+                                <p>Select a frame to view details</p>
+                            </div>
+                        </div>
+                        <div class="main-frame-details" id="mainFrameDetails">
+                            <!-- Frame details will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section class="error-section hidden" id="errorSection">
+                <div class="error-card">
+                    <div class="error-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="error-title">Processing Failed</h3>
+                    <p class="error-message" id="errorMessage">
+                        An error occurred while processing your video.
+                    </p>
+                    <button class="action-btn" id="retryBtn">
+                        <i class="fas fa-redo"></i>
+                        Try Again
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <p class="footer-text">&copy; 2025 Video Keyframes Extractor. Built with ❤️ using Node.js & FFmpeg.</p>
+                </div>
+                <div class="footer-actions">
+                    <div class="theme-toggle-label">
+                        <i class="fas fa-moon theme-icon"></i>
+                        <div class="theme-toggle"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="modal hidden" id="imageModal">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Frame Navigation -->
+            <button class="frame-nav-btn frame-nav-prev" id="framePrevBtn" title="Previous frame">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="frame-nav-btn frame-nav-next" id="frameNextBtn" title="Next frame">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="image-container" id="imageContainer">
+                <img src="" alt="Keyframe" id="modalImage" />
+                <canvas id="drawingCanvas" class="drawing-canvas hidden"></canvas>
+            </div>
+
+            <!-- Drawing Controls -->
+            <div class="drawing-controls" id="drawingControls">
+                <button class="drawing-btn" id="toggleDrawingBtn" title="Toggle drawing mode">
+                    <i class="fas fa-pencil-alt"></i>
+                    Draw
+                </button>
+                <button class="drawing-btn" id="clearDrawingBtn" title="Clear all drawings">
+                    <i class="fas fa-eraser"></i>
+                    Clear
+                </button>
+                <button class="drawing-btn" id="toggleNotesBtn" title="Toggle drawing visibility">
+                    <i class="fas fa-eye"></i>
+                    Show Notes
+                </button>
+                <div class="drawing-settings">
+                    <label for="brushSize">Size:</label>
+                    <input type="range" id="brushSize" min="1" max="10" value="3" class="brush-slider">
+                    <label for="brushColor">Color:</label>
+                    <input type="color" id="brushColor" value="#ff0000" class="color-picker">
+                </div>
+            </div>
+
+            <!-- Progress indicator -->
+            <div class="frame-progress hidden" id="frameProgress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="frameProgressFill"></div>
+                </div>
+                <div class="progress-info">
+                    <span id="frameTimeInfo"></span>
+                </div>
+            </div>
+
+            <div class="modal-info">
+                <h4 id="modalTitle">Keyframe</h4>
+                <div class="modal-actions">
+                    <button class="modal-btn" id="downloadBtn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                    <button class="modal-btn secondary" id="copyUrlBtn">
+                        <i class="fas fa-copy"></i>
+                        Copy URL
+                    </button>
+                    <button class="modal-btn primary hidden" id="saveFrameBtn">
+                        <i class="fas fa-save"></i>
+                        Save Frame
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes Modal -->
+    <div class="modal hidden" id="notesModal">
+        <div class="modal-backdrop" id="notesModalBackdrop"></div>
+        <div class="modal-content notes-modal-content">
+            <button class="modal-close" id="notesModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-info">
+                <h4 id="notesModalTitle">Add Notes to Selected Keyframes</h4>
+                <p class="notes-modal-description">
+                    These notes will be added to <span id="selectedFramesCount">0</span> selected keyframes and included
+                    in downloads.
+                </p>
+                <div class="notes-input-container">
+                    <textarea id="notesTextarea" class="notes-textarea" placeholder="Enter your notes here..." rows="6"
+                        maxlength="500"></textarea>
+                    <div class="notes-char-count">
+                        <span id="notesCharCount">0</span>/500 characters
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn" id="saveNotesBtn">
+                        <i class="fas fa-save"></i>
+                        Save Notes
+                    </button>
+                    <button class="modal-btn secondary" id="cancelNotesBtn">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app_modular.js"></script>
+</body>
+
+</html>

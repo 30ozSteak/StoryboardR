@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Manager Test</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <div class="header-top">
+          <!-- Theme toggle moved to footer -->
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <h1>Theme Manager Test</h1>
+      <p>Click the theme toggle above to test dark/light mode switching.</p>
+
+      <div
+        style="margin: 20px 0; padding: 20px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+        <h3>Current Theme Information:</h3>
+        <p id="themeInfo">Theme: Loading...</p>
+        <p id="themeFromStorage">Storage: Loading...</p>
+        <p id="systemPreference">System: Loading...</p>
+      </div>
+
+      <div>
+        <button onclick="testThemeManager()"
+          style="background: var(--primary-color); color: white; padding: 10px 20px; border: none; border-radius: var(--radius-md); cursor: pointer; margin: 5px;">
+          Test Theme Toggle
+        </button>
+        <button onclick="resetTheme()"
+          style="background: var(--bg-secondary); color: var(--text-primary); padding: 10px 20px; border: 1px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; margin: 5px;">
+          Reset to System
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-main">
+          <p class="footer-text">&copy; 2025 Video Keyframes Extractor. Built with ❤️ using Node.js & FFmpeg.</p>
+        </div>
+        <div class="footer-actions">
+          <div class="theme-toggle-label">
+            <i class="fas fa-moon theme-icon"></i>
+            <div class="theme-toggle"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module">
+    import { ThemeManager } from './modules/ThemeManager.js';
+
+    // Initialize theme manager
+    const themeManager = new ThemeManager();
+
+    // Make it available globally for testing
+    window.themeManager = themeManager;
+
+    // Update display info
+    function updateThemeInfo() {
+      document.getElementById('themeInfo').textContent = `Theme: ${themeManager.getCurrentTheme()}`;
+      document.getElementById('themeFromStorage').textContent = `Storage: ${localStorage.getItem('theme') || 'not set'}`;
+
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.getElementById('systemPreference').textContent = `System: ${prefersDark ? 'dark' : 'light'}`;
+    }
+
+    // Listen for theme changes
+    document.addEventListener('themeChange', (event) => {
+      console.log('Theme changed to:', event.detail.theme);
+      updateThemeInfo();
+    });
+
+    // Test functions
+    window.testThemeManager = () => {
+      themeManager.toggleTheme();
+    };
+
+    window.resetTheme = () => {
+      themeManager.resetToSystemTheme();
+    };
+
+    // Initial update
+    updateThemeInfo();
+
+    // Update every second to catch any changes
+    setInterval(updateThemeInfo, 1000);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,471 @@
+/* ===== MODERN DRAWING STYLES ===== */
+/* Canvas Drawing Tools and Controls with Beautiful Design */
+
+/* === Drawing Container === */
+.drawing-container {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-3xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+}
+
+.drawing-container:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+/* === Canvas Area === */
+.canvas-container {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-inner);
+}
+
+.drawing-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: crosshair;
+  transition: cursor var(--transition-fast);
+}
+
+.drawing-canvas.erasing {
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIiBmaWxsPSIjZWY0NDQ0Ii8+Cjwvc3ZnPgo=') 12 12, auto;
+}
+
+/* === Modern Drawing Toolbar === */
+.drawing-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-inner);
+  flex-wrap: wrap;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-primary);
+}
+
+.toolbar-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* === Tool Buttons === */
+.tool-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.3s;
+}
+
+.tool-btn:hover::before {
+  left: 100%;
+}
+
+.tool-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.tool-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.tool-btn:active {
+  transform: translateY(0);
+}
+
+/* === Color Picker === */
+.color-picker-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.color-picker {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  overflow: hidden;
+  position: relative;
+}
+
+.color-picker:hover {
+  border-color: var(--primary);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: var(--radius-base);
+}
+
+/* === Color Swatches === */
+.color-swatches {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.color-swatch.active {
+  border-color: var(--text-primary);
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.color-swatch.active::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* === Brush Size Slider === */
+.brush-size-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 120px;
+}
+
+.brush-size-slider {
+  flex: 1;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--bg-tertiary);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.brush-size-slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+}
+
+.brush-size-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.brush-size-slider::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow-md);
+}
+
+.brush-preview {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-full);
+  background: var(--text-primary);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+/* === Action Buttons === */
+.drawing-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.action-btn-drawing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: none;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 2.5rem;
+}
+
+.action-btn-primary {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.action-btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-700), var(--primary-600));
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.action-btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+}
+
+.action-btn-secondary:hover {
+  background: var(--bg-tertiary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.action-btn-danger {
+  background: linear-gradient(135deg, var(--error-600), var(--error-500));
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.action-btn-danger:hover {
+  background: linear-gradient(135deg, var(--error-700), var(--error-600));
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+/* === Drawing Status === */
+.drawing-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--info-bg);
+  border: 1px solid var(--info-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  color: var(--info);
+  margin-top: var(--space-4);
+}
+
+.drawing-status i {
+  font-size: var(--font-size-xs);
+}
+
+/* === Undo/Redo Buttons === */
+.history-controls {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.history-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+}
+
+.history-btn:hover:not(:disabled) {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.history-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* === Canvas Overlay === */
+.canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.canvas-overlay.visible {
+  opacity: 1;
+}
+
+/* === Touch Support === */
+@media (hover: none) and (pointer: coarse) {
+  .tool-btn,
+  .color-swatch {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .brush-size-slider::-webkit-slider-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .color-picker {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .drawing-container {
+    padding: var(--space-4);
+  }
+  
+  .drawing-toolbar {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  
+  .toolbar-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .drawing-actions {
+    justify-content: center;
+  }
+  
+  .action-btn-drawing {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .color-swatches {
+    justify-content: center;
+  }
+  
+  .brush-size-container {
+    min-width: 100px;
+  }
+  
+  .drawing-actions {
+    flex-direction: column;
+  }
+}
+
+/* === Print Styles === */
+@media print {
+  .drawing-toolbar,
+  .drawing-actions,
+  .drawing-status {
+    display: none !important;
+  }
+  
+  .drawing-container {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .canvas-container {
+    box-shadow: none;
+  }
+}
+
+/* === Accessibility === */
+.tool-btn:focus-visible,
+.color-swatch:focus-visible,
+.action-btn-drawing:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.brush-size-slider:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}

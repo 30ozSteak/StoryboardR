@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Test - Drawing Feature</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+    }
+
+    .test-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .test-button {
+      background: #6366f1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .test-button:hover {
+      background: #4f46e5;
+    }
+
+    .project-list {
+      margin: 20px 0;
+    }
+
+    .project-item {
+      background: #262626;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #404040;
+    }
+
+    .project-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .project-description {
+      color: #a1a1aa;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="test-container">
+    <h1>Main App Test - Drawing Feature</h1>
+    <p>Test the restored main application with drawing functionality.</p>
+
+    <div class="project-list">
+      <h2>Available Projects (Test Drawing Feature)</h2>
+
+      <div class="project-item">
+        <div class="project-name">KLK intro</div>
+        <div class="project-description">Video project with 39 keyframes</div>
+        <a href="/?project=37fe436e-2acb-426a-9b6e-a009ddb9d853" class="test-button">
+          Load Project & Test Drawing
+        </a>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">Direct Main App</div>
+        <div class="project-description">Open the main application directly</div>
+        <a href="/" class="test-button">
+          Open Main App
+        </a>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">Dashboard</div>
+        <div class="project-description">Access the project dashboard</div>
+        <a href="/dashboard.html" class="test-button">
+          Open Dashboard
+        </a>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">Drawing Test (Standalone)</div>
+        <div class="project-description">Test drawing functionality separately</div>
+        <a href="/drawing-test.html" class="test-button">
+          Open Drawing Test
+        </a>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; padding: 15px; background: #1a1a1a; border-radius: 8px;">
+      <h3>Testing Instructions:</h3>
+      <ol>
+        <li><strong>Load a project</strong> - Click "Load Project & Test Drawing" above</li>
+        <li><strong>Open a keyframe</strong> - Click the "View" button on any keyframe</li>
+        <li><strong>Enable drawing mode</strong> - Click the "Draw" button in the modal</li>
+        <li><strong>Draw on the image</strong> - Use mouse/touch to draw notes</li>
+        <li><strong>Test controls</strong> - Try different brush sizes, colors, clear, hide/show</li>
+        <li><strong>Test deletion</strong> - Select keyframes and try deleting them (should work now)</li>
+      </ol>
+    </div>
+  </div>
+</body>
+
+</html>

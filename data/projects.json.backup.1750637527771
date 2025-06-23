@@ -1,0 +1,1604 @@
+{
+  "projects": [
+    {
+      "id": "37fe436e-2acb-426a-9b6e-a009ddb9d853",
+      "name": "KLK intro",
+      "description": "Video project with 39 keyframes",
+      "videoSource": "https://www.youtube.com/watch?v=WKQ2m9h_cOc&list=RDWKQ2m9h_cOc&start_radio=1",
+      "sessionId": "30f764e8-a409-4e14-914a-f10566d9c5be",
+      "keyframes": [
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0001.jpg",
+          "timestamp": 0,
+          "index": 0
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0002.jpg",
+          "timestamp": 2,
+          "index": 1
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0003.jpg",
+          "timestamp": 4,
+          "index": 2
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0004.jpg",
+          "timestamp": 6,
+          "index": 3
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0005.jpg",
+          "timestamp": 8,
+          "index": 4
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0006.jpg",
+          "timestamp": 10,
+          "index": 5
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0007.jpg",
+          "timestamp": 12,
+          "index": 6
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0008.jpg",
+          "timestamp": 14,
+          "index": 7
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0009.jpg",
+          "timestamp": 16,
+          "index": 8
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0010.jpg",
+          "timestamp": 18,
+          "index": 9
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0011.jpg",
+          "timestamp": 20,
+          "index": 10
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0012.jpg",
+          "timestamp": 22,
+          "index": 11
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0013.jpg",
+          "timestamp": 24,
+          "index": 12
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0014.jpg",
+          "timestamp": 26,
+          "index": 13
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0015.jpg",
+          "timestamp": 28,
+          "index": 14
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0016.jpg",
+          "timestamp": 30,
+          "index": 15
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0017.jpg",
+          "timestamp": 32,
+          "index": 16
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0018.jpg",
+          "timestamp": 34,
+          "index": 17
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0019.jpg",
+          "timestamp": 36,
+          "index": 18
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0020.jpg",
+          "timestamp": 38,
+          "index": 19
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0021.jpg",
+          "timestamp": 40,
+          "index": 20
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0022.jpg",
+          "timestamp": 42,
+          "index": 21
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0023.jpg",
+          "timestamp": 44,
+          "index": 22
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0024.jpg",
+          "timestamp": 46,
+          "index": 23
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0025.jpg",
+          "timestamp": 48,
+          "index": 24
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0026.jpg",
+          "timestamp": 50,
+          "index": 25
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0027.jpg",
+          "timestamp": 52,
+          "index": 26
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0028.jpg",
+          "timestamp": 54,
+          "index": 27
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0029.jpg",
+          "timestamp": 56,
+          "index": 28
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0030.jpg",
+          "timestamp": 58,
+          "index": 29
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0031.jpg",
+          "timestamp": 60,
+          "index": 30
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0032.jpg",
+          "timestamp": 62,
+          "index": 31
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0033.jpg",
+          "timestamp": 64,
+          "index": 32
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0034.jpg",
+          "timestamp": 66,
+          "index": 33
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0035.jpg",
+          "timestamp": 68,
+          "index": 34
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0036.jpg",
+          "timestamp": 70,
+          "index": 35
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0037.jpg",
+          "timestamp": 72,
+          "index": 36
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0038.jpg",
+          "timestamp": 74,
+          "index": 37
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0039.jpg",
+          "timestamp": 76,
+          "index": 38
+        }
+      ],
+      "frameCount": 39,
+      "videoDuration": 116.982132,
+      "thumbnail": "http://localhost:3000/keyframes/30f764e8-a409-4e14-914a-f10566d9c5be/keyframe_0001.jpg",
+      "createdAt": "2025-06-22T13:08:06.190Z",
+      "updatedAt": "2025-06-22T13:08:06.190Z",
+      "keyframeNames": {
+        "keyframe_0001.jpg": "Keyframe 1",
+        "keyframe_0002.jpg": "Keyframe 2",
+        "keyframe_0003.jpg": "Keyframe 3",
+        "keyframe_0004.jpg": "Keyframe 4",
+        "keyframe_0005.jpg": "Keyframe 5",
+        "keyframe_0006.jpg": "Keyframe 6",
+        "keyframe_0007.jpg": "Keyframe 7",
+        "keyframe_0008.jpg": "Keyframe 8",
+        "keyframe_0009.jpg": "Keyframe 9",
+        "keyframe_0010.jpg": "Keyframe 10",
+        "keyframe_0011.jpg": "Keyframe 11",
+        "keyframe_0012.jpg": "Keyframe 12",
+        "keyframe_0013.jpg": "Keyframe 13",
+        "keyframe_0014.jpg": "Keyframe 14",
+        "keyframe_0015.jpg": "Keyframe 15",
+        "keyframe_0016.jpg": "Keyframe 16",
+        "keyframe_0017.jpg": "Keyframe 17",
+        "keyframe_0018.jpg": "Keyframe 18",
+        "keyframe_0019.jpg": "Keyframe 19",
+        "keyframe_0020.jpg": "Keyframe 20",
+        "keyframe_0021.jpg": "Keyframe 21",
+        "keyframe_0022.jpg": "Keyframe 22",
+        "keyframe_0023.jpg": "Keyframe 23",
+        "keyframe_0024.jpg": "Keyframe 24",
+        "keyframe_0025.jpg": "Keyframe 25",
+        "keyframe_0026.jpg": "Keyframe 26",
+        "keyframe_0027.jpg": "Keyframe 27",
+        "keyframe_0028.jpg": "Keyframe 28",
+        "keyframe_0029.jpg": "Keyframe 29",
+        "keyframe_0030.jpg": "Keyframe 30",
+        "keyframe_0031.jpg": "Keyframe 31",
+        "keyframe_0032.jpg": "Keyframe 32",
+        "keyframe_0033.jpg": "Keyframe 33",
+        "keyframe_0034.jpg": "Keyframe 34",
+        "keyframe_0035.jpg": "Keyframe 35",
+        "keyframe_0036.jpg": "Keyframe 36",
+        "keyframe_0037.jpg": "Keyframe 37",
+        "keyframe_0038.jpg": "Keyframe 38",
+        "keyframe_0039.jpg": "Keyframe 39",
+        "keyframe_0040.jpg": "Keyframe 40",
+        "keyframe_0041.jpg": "Keyframe 41",
+        "keyframe_0042.jpg": "Keyframe 42",
+        "keyframe_0043.jpg": "Keyframe 43",
+        "keyframe_0044.jpg": "Keyframe 44",
+        "keyframe_0045.jpg": "Keyframe 45",
+        "keyframe_0046.jpg": "Keyframe 46",
+        "keyframe_0047.jpg": "Keyframe 47",
+        "keyframe_0048.jpg": "Keyframe 48",
+        "keyframe_0049.jpg": "Keyframe 49",
+        "keyframe_0050.jpg": "Keyframe 50"
+      },
+      "keyframeNotes": {},
+      "selectedKeyframes": []
+    },
+    {
+      "id": "88d60561-7f2e-4e11-8548-5b112a1e4740",
+      "name": "klk",
+      "description": "Video project with 50 keyframes",
+      "videoSource": "https://www.youtube.com/watch?v=WKQ2m9h_cOc&list=RDWKQ2m9h_cOc&start_radio=1",
+      "sessionId": "d2d099d9-da00-452f-97de-247380fef97a",
+      "keyframes": [
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0001.jpg",
+          "timestamp": 0,
+          "index": 0
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0002.jpg",
+          "timestamp": 2,
+          "index": 1
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0003.jpg",
+          "timestamp": 4,
+          "index": 2
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0004.jpg",
+          "timestamp": 6,
+          "index": 3
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0005.jpg",
+          "timestamp": 8,
+          "index": 4
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0006.jpg",
+          "timestamp": 10,
+          "index": 5
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0007.jpg",
+          "timestamp": 12,
+          "index": 6
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0008.jpg",
+          "timestamp": 14,
+          "index": 7
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0009.jpg",
+          "timestamp": 16,
+          "index": 8
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0010.jpg",
+          "timestamp": 18,
+          "index": 9
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0011.jpg",
+          "timestamp": 20,
+          "index": 10
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0012.jpg",
+          "timestamp": 22,
+          "index": 11
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0013.jpg",
+          "timestamp": 24,
+          "index": 12
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0014.jpg",
+          "timestamp": 26,
+          "index": 13
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0015.jpg",
+          "timestamp": 28,
+          "index": 14
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0016.jpg",
+          "timestamp": 30,
+          "index": 15
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0017.jpg",
+          "timestamp": 32,
+          "index": 16
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0018.jpg",
+          "timestamp": 34,
+          "index": 17
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0019.jpg",
+          "timestamp": 36,
+          "index": 18
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0020.jpg",
+          "timestamp": 38,
+          "index": 19
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0021.jpg",
+          "timestamp": 40,
+          "index": 20
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0022.jpg",
+          "timestamp": 42,
+          "index": 21
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0023.jpg",
+          "timestamp": 44,
+          "index": 22
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0024.jpg",
+          "timestamp": 46,
+          "index": 23
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0025.jpg",
+          "timestamp": 48,
+          "index": 24
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0026.jpg",
+          "timestamp": 50,
+          "index": 25
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0027.jpg",
+          "timestamp": 52,
+          "index": 26
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0028.jpg",
+          "timestamp": 54,
+          "index": 27
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0029.jpg",
+          "timestamp": 56,
+          "index": 28
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0030.jpg",
+          "timestamp": 58,
+          "index": 29
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0031.jpg",
+          "timestamp": 60,
+          "index": 30
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0032.jpg",
+          "timestamp": 62,
+          "index": 31
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0033.jpg",
+          "timestamp": 64,
+          "index": 32
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0034.jpg",
+          "timestamp": 66,
+          "index": 33
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0035.jpg",
+          "timestamp": 68,
+          "index": 34
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0036.jpg",
+          "timestamp": 70,
+          "index": 35
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0037.jpg",
+          "timestamp": 72,
+          "index": 36
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0038.jpg",
+          "timestamp": 74,
+          "index": 37
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0039.jpg",
+          "timestamp": 76,
+          "index": 38
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0040.jpg",
+          "timestamp": 78,
+          "index": 39
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0041.jpg",
+          "timestamp": 80,
+          "index": 40
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0042.jpg",
+          "timestamp": 82,
+          "index": 41
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0043.jpg",
+          "timestamp": 84,
+          "index": 42
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0044.jpg",
+          "timestamp": 86,
+          "index": 43
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0045.jpg",
+          "timestamp": 88,
+          "index": 44
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0046.jpg",
+          "timestamp": 90,
+          "index": 45
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0047.jpg",
+          "timestamp": 92,
+          "index": 46
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0048.jpg",
+          "timestamp": 94,
+          "index": 47
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0049.jpg",
+          "timestamp": 96,
+          "index": 48
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0050.jpg",
+          "timestamp": 98,
+          "index": 49
+        }
+      ],
+      "frameCount": 50,
+      "videoDuration": 116.982132,
+      "thumbnail": "http://localhost:3000/keyframes/d2d099d9-da00-452f-97de-247380fef97a/keyframe_0001.jpg",
+      "createdAt": "2025-06-22T13:29:54.937Z",
+      "updatedAt": "2025-06-22T13:29:54.937Z",
+      "keyframeNames": {
+        "keyframe_0001.jpg": "Keyframe 1",
+        "keyframe_0002.jpg": "Keyframe 2",
+        "keyframe_0003.jpg": "Keyframe 3",
+        "keyframe_0004.jpg": "Keyframe 4",
+        "keyframe_0005.jpg": "Keyframe 5",
+        "keyframe_0006.jpg": "Keyframe 6",
+        "keyframe_0007.jpg": "Keyframe 7",
+        "keyframe_0008.jpg": "Keyframe 8",
+        "keyframe_0009.jpg": "Keyframe 9",
+        "keyframe_0010.jpg": "Keyframe 10",
+        "keyframe_0011.jpg": "Keyframe 11",
+        "keyframe_0012.jpg": "Keyframe 12",
+        "keyframe_0013.jpg": "Keyframe 13",
+        "keyframe_0014.jpg": "Keyframe 14",
+        "keyframe_0015.jpg": "Keyframe 15",
+        "keyframe_0016.jpg": "Keyframe 16",
+        "keyframe_0017.jpg": "Keyframe 17",
+        "keyframe_0018.jpg": "Keyframe 18",
+        "keyframe_0019.jpg": "Keyframe 19",
+        "keyframe_0020.jpg": "Keyframe 20",
+        "keyframe_0021.jpg": "Keyframe 21",
+        "keyframe_0022.jpg": "Keyframe 22",
+        "keyframe_0023.jpg": "Keyframe 23",
+        "keyframe_0024.jpg": "Keyframe 24",
+        "keyframe_0025.jpg": "Keyframe 25",
+        "keyframe_0026.jpg": "Keyframe 26",
+        "keyframe_0027.jpg": "Keyframe 27",
+        "keyframe_0028.jpg": "Keyframe 28",
+        "keyframe_0029.jpg": "Keyframe 29",
+        "keyframe_0030.jpg": "Keyframe 30",
+        "keyframe_0031.jpg": "Keyframe 31",
+        "keyframe_0032.jpg": "Keyframe 32",
+        "keyframe_0033.jpg": "Keyframe 33",
+        "keyframe_0034.jpg": "Keyframe 34",
+        "keyframe_0035.jpg": "Keyframe 35",
+        "keyframe_0036.jpg": "Keyframe 36",
+        "keyframe_0037.jpg": "Keyframe 37",
+        "keyframe_0038.jpg": "Keyframe 38",
+        "keyframe_0039.jpg": "Keyframe 39",
+        "keyframe_0040.jpg": "Keyframe 40",
+        "keyframe_0041.jpg": "Keyframe 41",
+        "keyframe_0042.jpg": "Keyframe 42",
+        "keyframe_0043.jpg": "Keyframe 43",
+        "keyframe_0044.jpg": "Keyframe 44",
+        "keyframe_0045.jpg": "Keyframe 45",
+        "keyframe_0046.jpg": "Keyframe 46",
+        "keyframe_0047.jpg": "Keyframe 47",
+        "keyframe_0048.jpg": "Keyframe 48",
+        "keyframe_0049.jpg": "Keyframe 49",
+        "keyframe_0050.jpg": "Keyframe 50"
+      },
+      "keyframeNotes": {},
+      "selectedKeyframes": []
+    },
+    {
+      "id": "049f9351-af10-4ecb-94ab-6a2d25fced4f",
+      "name": "KLK",
+      "description": "Video project with 39 keyframes",
+      "videoSource": "https://www.youtube.com/watch?v=H8t9ApR0WZs",
+      "sessionId": "1f94bf5d-92e3-4662-b71e-4c2cd15b4be2",
+      "keyframes": [
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0001.jpg",
+          "timestamp": 0,
+          "index": 0
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0002.jpg",
+          "timestamp": 2,
+          "index": 1
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0003.jpg",
+          "timestamp": 4,
+          "index": 2
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0004.jpg",
+          "timestamp": 6,
+          "index": 3
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0005.jpg",
+          "timestamp": 8,
+          "index": 4
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0006.jpg",
+          "timestamp": 10,
+          "index": 5
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0007.jpg",
+          "timestamp": 12,
+          "index": 6
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0008.jpg",
+          "timestamp": 14,
+          "index": 7
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0009.jpg",
+          "timestamp": 16,
+          "index": 8
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0010.jpg",
+          "timestamp": 18,
+          "index": 9
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0011.jpg",
+          "timestamp": 20,
+          "index": 10
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0012.jpg",
+          "timestamp": 22,
+          "index": 11
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0013.jpg",
+          "timestamp": 24,
+          "index": 12
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0014.jpg",
+          "timestamp": 26,
+          "index": 13
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0015.jpg",
+          "timestamp": 28,
+          "index": 14
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0016.jpg",
+          "timestamp": 30,
+          "index": 15
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0017.jpg",
+          "timestamp": 32,
+          "index": 16
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0018.jpg",
+          "timestamp": 34,
+          "index": 17
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0019.jpg",
+          "timestamp": 36,
+          "index": 18
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0020.jpg",
+          "timestamp": 38,
+          "index": 19
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0021.jpg",
+          "timestamp": 40,
+          "index": 20
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0022.jpg",
+          "timestamp": 42,
+          "index": 21
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0023.jpg",
+          "timestamp": 44,
+          "index": 22
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0024.jpg",
+          "timestamp": 46,
+          "index": 23
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0025.jpg",
+          "timestamp": 48,
+          "index": 24
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0026.jpg",
+          "timestamp": 50,
+          "index": 25
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0027.jpg",
+          "timestamp": 52,
+          "index": 26
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0028.jpg",
+          "timestamp": 54,
+          "index": 27
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0029.jpg",
+          "timestamp": 56,
+          "index": 28
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0030.jpg",
+          "timestamp": 58,
+          "index": 29
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0031.jpg",
+          "timestamp": 60,
+          "index": 30
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0032.jpg",
+          "timestamp": 62,
+          "index": 31
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0033.jpg",
+          "timestamp": 64,
+          "index": 32
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0034.jpg",
+          "timestamp": 66,
+          "index": 33
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0035.jpg",
+          "timestamp": 68,
+          "index": 34
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0036.jpg",
+          "timestamp": 70,
+          "index": 35
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0037.jpg",
+          "timestamp": 72,
+          "index": 36
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0038.jpg",
+          "timestamp": 74,
+          "index": 37
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0039.jpg",
+          "timestamp": 76,
+          "index": 38
+        }
+      ],
+      "frameCount": 39,
+      "videoDuration": 116.239093,
+      "thumbnail": "http://localhost:3000/keyframes/1f94bf5d-92e3-4662-b71e-4c2cd15b4be2/keyframe_0001.jpg",
+      "createdAt": "2025-06-22T15:43:43.713Z",
+      "updatedAt": "2025-06-22T15:43:43.713Z",
+      "keyframeNames": {
+        "keyframe_0001.jpg": "Keyframe 1",
+        "keyframe_0002.jpg": "Keyframe 2",
+        "keyframe_0003.jpg": "Keyframe 3",
+        "keyframe_0004.jpg": "Keyframe 4",
+        "keyframe_0005.jpg": "Keyframe 5",
+        "keyframe_0006.jpg": "Keyframe 6",
+        "keyframe_0007.jpg": "Keyframe 7",
+        "keyframe_0008.jpg": "Keyframe 8",
+        "keyframe_0009.jpg": "Keyframe 9",
+        "keyframe_0010.jpg": "Keyframe 10",
+        "keyframe_0011.jpg": "Keyframe 11",
+        "keyframe_0012.jpg": "Keyframe 12",
+        "keyframe_0013.jpg": "Keyframe 13",
+        "keyframe_0014.jpg": "Keyframe 14",
+        "keyframe_0015.jpg": "Keyframe 15",
+        "keyframe_0016.jpg": "Keyframe 16",
+        "keyframe_0017.jpg": "Keyframe 17",
+        "keyframe_0018.jpg": "Keyframe 18",
+        "keyframe_0019.jpg": "Keyframe 19",
+        "keyframe_0020.jpg": "Keyframe 20",
+        "keyframe_0021.jpg": "Keyframe 21",
+        "keyframe_0022.jpg": "Keyframe 22",
+        "keyframe_0023.jpg": "Keyframe 23",
+        "keyframe_0024.jpg": "Keyframe 24",
+        "keyframe_0025.jpg": "Keyframe 25",
+        "keyframe_0026.jpg": "Keyframe 26",
+        "keyframe_0027.jpg": "Keyframe 27",
+        "keyframe_0028.jpg": "Keyframe 28",
+        "keyframe_0029.jpg": "Keyframe 29",
+        "keyframe_0030.jpg": "Keyframe 30",
+        "keyframe_0031.jpg": "Keyframe 31",
+        "keyframe_0032.jpg": "Keyframe 32",
+        "keyframe_0033.jpg": "Keyframe 33",
+        "keyframe_0034.jpg": "Keyframe 34",
+        "keyframe_0035.jpg": "Keyframe 35",
+        "keyframe_0036.jpg": "Keyframe 36",
+        "keyframe_0037.jpg": "Keyframe 37",
+        "keyframe_0038.jpg": "Keyframe 38",
+        "keyframe_0039.jpg": "Keyframe 39",
+        "keyframe_0040.jpg": "Keyframe 40",
+        "keyframe_0041.jpg": "Keyframe 41",
+        "keyframe_0042.jpg": "Keyframe 42",
+        "keyframe_0043.jpg": "Keyframe 43",
+        "keyframe_0044.jpg": "Keyframe 44",
+        "keyframe_0045.jpg": "Keyframe 45",
+        "keyframe_0046.jpg": "Keyframe 46",
+        "keyframe_0047.jpg": "Keyframe 47",
+        "keyframe_0048.jpg": "Keyframe 48",
+        "keyframe_0049.jpg": "Keyframe 49",
+        "keyframe_0050.jpg": "Keyframe 50"
+      },
+      "keyframeNotes": {},
+      "selectedKeyframes": []
+    },
+    {
+      "id": "da58b814-c9ef-498c-8a63-78ddcfe48b05",
+      "name": "KLK2",
+      "description": "Video project with 51 keyframes",
+      "videoSource": "https://www.youtube.com/watch?v=H8t9ApR0WZs",
+      "sessionId": "7cd8eb21-3af9-44ed-b93d-86366d67a3fd",
+      "keyframes": [
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0001.jpg",
+          "timestamp": 0,
+          "index": 0
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0002.jpg",
+          "timestamp": 2,
+          "index": 1
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0003.jpg",
+          "timestamp": 4,
+          "index": 2
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0004.jpg",
+          "timestamp": 6,
+          "index": 3
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0005.jpg",
+          "timestamp": 8,
+          "index": 4
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0006.jpg",
+          "timestamp": 10,
+          "index": 5
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0007.jpg",
+          "timestamp": 12,
+          "index": 6
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0008.jpg",
+          "timestamp": 14,
+          "index": 7
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0009.jpg",
+          "timestamp": 16,
+          "index": 8
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0010.jpg",
+          "timestamp": 18,
+          "index": 9
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0011.jpg",
+          "timestamp": 20,
+          "index": 10
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0012.jpg",
+          "timestamp": 22,
+          "index": 11
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0013.jpg",
+          "timestamp": 24,
+          "index": 12
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0014.jpg",
+          "timestamp": 26,
+          "index": 13
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0015.jpg",
+          "timestamp": 28,
+          "index": 14
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0016.jpg",
+          "timestamp": 30,
+          "index": 15
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0017.jpg",
+          "timestamp": 32,
+          "index": 16
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0018.jpg",
+          "timestamp": 34,
+          "index": 17
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0019.jpg",
+          "timestamp": 36,
+          "index": 18
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0020.jpg",
+          "timestamp": 38,
+          "index": 19
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0021.jpg",
+          "timestamp": 40,
+          "index": 20
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0022.jpg",
+          "timestamp": 42,
+          "index": 21
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0023.jpg",
+          "timestamp": 44,
+          "index": 22
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0024.jpg",
+          "timestamp": 46,
+          "index": 23
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0025.jpg",
+          "timestamp": 48,
+          "index": 24
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0026.jpg",
+          "timestamp": 50,
+          "index": 25
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0027.jpg",
+          "timestamp": 52,
+          "index": 26
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0028.jpg",
+          "timestamp": 54,
+          "index": 27
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0029.jpg",
+          "timestamp": 56,
+          "index": 28
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0030.jpg",
+          "timestamp": 58,
+          "index": 29
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0031.jpg",
+          "timestamp": 60,
+          "index": 30
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0032.jpg",
+          "timestamp": 62,
+          "index": 31
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0033.jpg",
+          "timestamp": 64,
+          "index": 32
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0034.jpg",
+          "timestamp": 66,
+          "index": 33
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0035.jpg",
+          "timestamp": 68,
+          "index": 34
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0036.jpg",
+          "timestamp": 70,
+          "index": 35
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0037.jpg",
+          "timestamp": 72,
+          "index": 36
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0038.jpg",
+          "timestamp": 74,
+          "index": 37
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0039.jpg",
+          "timestamp": 76,
+          "index": 38
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0040.jpg",
+          "timestamp": 78,
+          "index": 39
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0041.jpg",
+          "timestamp": 80,
+          "index": 40
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0042.jpg",
+          "timestamp": 82,
+          "index": 41
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0043.jpg",
+          "timestamp": 84,
+          "index": 42
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0044.jpg",
+          "timestamp": 86,
+          "index": 43
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0045.jpg",
+          "timestamp": 88,
+          "index": 44
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0046.jpg",
+          "timestamp": 90,
+          "index": 45
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0047.jpg",
+          "timestamp": 92,
+          "index": 46
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0048.jpg",
+          "timestamp": 94,
+          "index": 47
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0049.jpg",
+          "timestamp": 96,
+          "index": 48
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0050.jpg",
+          "timestamp": 98,
+          "index": 49
+        },
+        {
+          "filename": "",
+          "url": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/saved_frame_1750610383230.jpg",
+          "timestamp": 100,
+          "index": 50
+        }
+      ],
+      "frameCount": 51,
+      "videoDuration": 116.239093,
+      "thumbnail": "http://localhost:3000/keyframes/7cd8eb21-3af9-44ed-b93d-86366d67a3fd/keyframe_0001.jpg",
+      "createdAt": "2025-06-22T16:35:26.481Z",
+      "updatedAt": "2025-06-22T16:39:53.353Z",
+      "keyframeNames": {
+        "": "Keyframe 1",
+        "saved_frame_1750610383230.jpg": "Saved Frame at 9.0s"
+      },
+      "keyframeNotes": {},
+      "selectedKeyframes": []
+    },
+    {
+      "id": "a8d3a51f-24cc-4df0-9f75-78c882e4b1dd",
+      "name": "KLK",
+      "description": "Video project with 39 keyframes",
+      "videoSource": "https://www.youtube.com/watch?v=H8t9ApR0WZs",
+      "sessionId": "bc5e6248-901e-4a5e-b061-edbadeceeca2",
+      "keyframes": [
+        {
+          "filename": "keyframe_0001.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0001.jpg",
+          "timestamp": 0,
+          "index": 0
+        },
+        {
+          "filename": "keyframe_0002.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0002.jpg",
+          "timestamp": 2.372226387755102,
+          "index": 1
+        },
+        {
+          "filename": "keyframe_0003.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0003.jpg",
+          "timestamp": 4.744452775510204,
+          "index": 2
+        },
+        {
+          "filename": "keyframe_0004.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0004.jpg",
+          "timestamp": 7.116679163265307,
+          "index": 3
+        },
+        {
+          "filename": "keyframe_0005.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0005.jpg",
+          "timestamp": 9.488905551020409,
+          "index": 4
+        },
+        {
+          "filename": "keyframe_0006.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0006.jpg",
+          "timestamp": 11.861131938775511,
+          "index": 5
+        },
+        {
+          "filename": "keyframe_0007.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0007.jpg",
+          "timestamp": 14.233358326530613,
+          "index": 6
+        },
+        {
+          "filename": "keyframe_0008.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0008.jpg",
+          "timestamp": 16.605584714285715,
+          "index": 7
+        },
+        {
+          "filename": "keyframe_0009.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0009.jpg",
+          "timestamp": 18.977811102040818,
+          "index": 8
+        },
+        {
+          "filename": "keyframe_0010.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0010.jpg",
+          "timestamp": 21.35003748979592,
+          "index": 9
+        },
+        {
+          "filename": "keyframe_0011.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0011.jpg",
+          "timestamp": 23.722263877551022,
+          "index": 10
+        },
+        {
+          "filename": "keyframe_0012.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0012.jpg",
+          "timestamp": 26.094490265306124,
+          "index": 11
+        },
+        {
+          "filename": "keyframe_0013.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0013.jpg",
+          "timestamp": 28.466716653061226,
+          "index": 12
+        },
+        {
+          "filename": "keyframe_0014.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0014.jpg",
+          "timestamp": 30.83894304081633,
+          "index": 13
+        },
+        {
+          "filename": "keyframe_0015.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0015.jpg",
+          "timestamp": 33.21116942857143,
+          "index": 14
+        },
+        {
+          "filename": "keyframe_0016.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0016.jpg",
+          "timestamp": 35.58339581632653,
+          "index": 15
+        },
+        {
+          "filename": "keyframe_0017.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0017.jpg",
+          "timestamp": 37.955622204081635,
+          "index": 16
+        },
+        {
+          "filename": "keyframe_0018.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0018.jpg",
+          "timestamp": 40.32784859183674,
+          "index": 17
+        },
+        {
+          "filename": "keyframe_0019.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0019.jpg",
+          "timestamp": 42.70007497959184,
+          "index": 18
+        },
+        {
+          "filename": "keyframe_0020.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0020.jpg",
+          "timestamp": 45.07230136734694,
+          "index": 19
+        },
+        {
+          "filename": "keyframe_0021.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0021.jpg",
+          "timestamp": 47.444527755102044,
+          "index": 20
+        },
+        {
+          "filename": "keyframe_0022.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0022.jpg",
+          "timestamp": 49.81675414285715,
+          "index": 21
+        },
+        {
+          "filename": "keyframe_0023.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0023.jpg",
+          "timestamp": 52.18898053061225,
+          "index": 22
+        },
+        {
+          "filename": "keyframe_0024.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0024.jpg",
+          "timestamp": 54.56120691836735,
+          "index": 23
+        },
+        {
+          "filename": "keyframe_0025.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0025.jpg",
+          "timestamp": 56.93343330612245,
+          "index": 24
+        },
+        {
+          "filename": "keyframe_0026.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0026.jpg",
+          "timestamp": 59.30565969387756,
+          "index": 25
+        },
+        {
+          "filename": "keyframe_0027.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0027.jpg",
+          "timestamp": 61.67788608163266,
+          "index": 26
+        },
+        {
+          "filename": "keyframe_0028.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0028.jpg",
+          "timestamp": 64.05011246938776,
+          "index": 27
+        },
+        {
+          "filename": "keyframe_0029.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0029.jpg",
+          "timestamp": 66.42233885714286,
+          "index": 28
+        },
+        {
+          "filename": "keyframe_0030.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0030.jpg",
+          "timestamp": 68.79456524489797,
+          "index": 29
+        },
+        {
+          "filename": "keyframe_0031.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0031.jpg",
+          "timestamp": 71.16679163265306,
+          "index": 30
+        },
+        {
+          "filename": "keyframe_0032.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0032.jpg",
+          "timestamp": 73.53901802040816,
+          "index": 31
+        },
+        {
+          "filename": "keyframe_0033.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0033.jpg",
+          "timestamp": 75.91124440816327,
+          "index": 32
+        },
+        {
+          "filename": "keyframe_0034.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0034.jpg",
+          "timestamp": 78.28347079591838,
+          "index": 33
+        },
+        {
+          "filename": "keyframe_0035.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0035.jpg",
+          "timestamp": 80.65569718367348,
+          "index": 34
+        },
+        {
+          "filename": "keyframe_0036.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0036.jpg",
+          "timestamp": 83.02792357142857,
+          "index": 35
+        },
+        {
+          "filename": "keyframe_0037.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0037.jpg",
+          "timestamp": 85.40014995918368,
+          "index": 36
+        },
+        {
+          "filename": "keyframe_0038.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0038.jpg",
+          "timestamp": 87.77237634693878,
+          "index": 37
+        },
+        {
+          "filename": "keyframe_0039.jpg",
+          "url": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0039.jpg",
+          "timestamp": 90.14460273469388,
+          "index": 38
+        }
+      ],
+      "frameCount": 39,
+      "videoDuration": 116.239093,
+      "thumbnail": "http://localhost:3000/keyframes/bc5e6248-901e-4a5e-b061-edbadeceeca2/keyframe_0001.jpg",
+      "createdAt": "2025-06-22T23:41:16.761Z",
+      "updatedAt": "2025-06-22T23:41:16.761Z",
+      "keyframeNames": {
+        "keyframe_0001.jpg": "Keyframe 1",
+        "keyframe_0002.jpg": "Keyframe 2",
+        "keyframe_0003.jpg": "Keyframe 3",
+        "keyframe_0004.jpg": "Keyframe 4",
+        "keyframe_0005.jpg": "Keyframe 5",
+        "keyframe_0006.jpg": "Keyframe 6",
+        "keyframe_0007.jpg": "Keyframe 7",
+        "keyframe_0008.jpg": "Keyframe 8",
+        "keyframe_0009.jpg": "Keyframe 9",
+        "keyframe_0010.jpg": "Keyframe 10",
+        "keyframe_0011.jpg": "Keyframe 11",
+        "keyframe_0012.jpg": "Keyframe 12",
+        "keyframe_0013.jpg": "Keyframe 13",
+        "keyframe_0014.jpg": "Keyframe 14",
+        "keyframe_0015.jpg": "Keyframe 15",
+        "keyframe_0016.jpg": "Keyframe 16",
+        "keyframe_0017.jpg": "Keyframe 17",
+        "keyframe_0018.jpg": "Keyframe 18",
+        "keyframe_0019.jpg": "Keyframe 19",
+        "keyframe_0020.jpg": "Keyframe 20",
+        "keyframe_0021.jpg": "Keyframe 21",
+        "keyframe_0022.jpg": "Keyframe 22",
+        "keyframe_0023.jpg": "Keyframe 23",
+        "keyframe_0024.jpg": "Keyframe 24",
+        "keyframe_0025.jpg": "Keyframe 25",
+        "keyframe_0026.jpg": "Keyframe 26",
+        "keyframe_0027.jpg": "Keyframe 27",
+        "keyframe_0028.jpg": "Keyframe 28",
+        "keyframe_0029.jpg": "Keyframe 29",
+        "keyframe_0030.jpg": "Keyframe 30",
+        "keyframe_0031.jpg": "Keyframe 31",
+        "keyframe_0032.jpg": "Keyframe 32",
+        "keyframe_0033.jpg": "Keyframe 33",
+        "keyframe_0034.jpg": "Keyframe 34",
+        "keyframe_0035.jpg": "Keyframe 35",
+        "keyframe_0036.jpg": "Keyframe 36",
+        "keyframe_0037.jpg": "Keyframe 37",
+        "keyframe_0038.jpg": "Keyframe 38",
+        "keyframe_0039.jpg": "Keyframe 39",
+        "keyframe_0040.jpg": "Keyframe 40",
+        "keyframe_0041.jpg": "Keyframe 41",
+        "keyframe_0042.jpg": "Keyframe 42",
+        "keyframe_0043.jpg": "Keyframe 43",
+        "keyframe_0044.jpg": "Keyframe 44",
+        "keyframe_0045.jpg": "Keyframe 45",
+        "keyframe_0046.jpg": "Keyframe 46",
+        "keyframe_0047.jpg": "Keyframe 47",
+        "keyframe_0048.jpg": "Keyframe 48",
+        "keyframe_0049.jpg": "Keyframe 49",
+        "keyframe_0050.jpg": "Keyframe 50"
+      },
+      "keyframeNotes": {},
+      "selectedKeyframes": []
+    }
+  ]
+}

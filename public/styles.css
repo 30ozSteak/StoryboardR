@@ -1,0 +1,74 @@
+/* ===== MODULAR STYLES ===== */
+/* Main CSS file that imports all component styles */
+
+/* Base Styles - Core variables, reset, and utilities */
+@import url('/styles/base.css');
+
+/* Theme Styles - Theme variables and transitions */
+@import url('/styles/theme.css');
+
+/* Layout Styles - Header, main content, and footer */
+@import url('/styles/layout.css');
+
+/* Component Styles */
+@import url('/styles/video-processor.css');
+/* Upload section, tabs, forms */
+@import url('/styles/loading.css');
+/* Loading indicators and progress */
+@import url('/styles/keyframe-manager.css');
+/* Gallery, results, bulk actions */
+@import url('/styles/modal-manager.css');
+/* Modals, overlays, and navigation */
+@import url('/styles/drawing.css');
+/* Canvas drawing and controls */
+
+/* Additional shared styles and utilities */
+
+/* Error Section */
+.error-section {
+    margin-bottom: 2rem;
+}
+
+.error-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    padding: 3rem 2rem;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.error-icon {
+    font-size: 3rem;
+    color: var(--error-color);
+    margin-bottom: 1rem;
+}
+
+.error-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.error-message {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* Global responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .header-content,
+    .upload-card {
+        padding: 1.5rem;
+    }
+}
