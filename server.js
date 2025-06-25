@@ -34,20 +34,22 @@ app.use('/api/video', videoProcessor);
 app.use('/api/cookies', cookieManager);
 app.use('/api/projects', projectRoutes);
 
-// Routes for specific pages (MUST come before static middleware)
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
-});
-
-app.get('/extract', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// Serve static files (frontend)
+// Serve static files FIRST (before SPA catch-all)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Serve static keyframe images
 app.use('/keyframes', express.static(keyframesDir));
+
+// SPA catch-all - serve app.html for ALL non-API routes
+app.get('*', (req, res, next) => {
+  // Only serve SPA for non-API routes
+  if (req.path.startsWith('/api/')) {
+    return next(); // Let API routes handle themselves
+  }
+  
+  // Serve the SPA for ALL other routes (including root)
+  res.sendFile(path.join(__dirname, 'public', 'app.html'));
+});
 
 // Health check
 app.get('/health', (req, res) => {

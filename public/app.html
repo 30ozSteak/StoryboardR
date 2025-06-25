@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoryboardR - Video Keyframe Storyboard Creator</title>
+  
+  <!-- CSS Imports -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/spa.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Force Dark Theme -->
+  <style>
+    :root {
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+    }
+    
+    html, body {
+      background: #222222 !important;
+      background-color: #222222 !important;
+      color: #f8fafc !important;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    .container, div.container, main, section {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
+    
+    /* Mouse gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        rgba(255, 255, 255, 0.06) 0%, 
+        rgba(255, 255, 255, 0.02) 40%, 
+        transparent 70%
+      );
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    body.mouse-active::before {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SPA will inject content here -->
+  
+  <!-- External Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  
+  <!-- SPA Main Script -->
+  <script type="module" src="spa.js"></script>
+  
+  <!-- SPA Integration with Backend -->
+  <script type="module" src="spa-integration.js"></script>
+</body>
+
+</html>

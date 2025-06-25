@@ -42,9 +42,24 @@ class ProjectManager {
     }
   }
 
+  // Utility method to ensure keyframes have unique IDs
+  ensureKeyframeIds(keyframes) {
+    if (!Array.isArray(keyframes)) return keyframes;
+
+    return keyframes.map(keyframe => {
+      if (!keyframe.id) {
+        keyframe.id = uuidv4();
+      }
+      return keyframe;
+    });
+  }
+
   async createProject(projectData) {
     try {
       const projects = await this.loadProjects();
+
+      // Ensure all keyframes have unique IDs
+      const keyframesWithIds = this.ensureKeyframeIds(projectData.keyframes);
 
       const newProject = {
         id: uuidv4(),
@@ -52,8 +67,8 @@ class ProjectManager {
         description: projectData.description || '',
         videoSource: projectData.videoSource || '', // URL or original filename
         sessionId: projectData.sessionId,
-        keyframes: projectData.keyframes || [],
-        frameCount: projectData.frameCount || 0,
+        keyframes: keyframesWithIds,
+        frameCount: keyframesWithIds.length,
         videoDuration: projectData.videoDuration || 0,
         thumbnail: projectData.thumbnail || null, // First keyframe as thumbnail
         createdAt: new Date().toISOString(),

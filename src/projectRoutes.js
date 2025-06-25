@@ -76,4 +76,82 @@ router.post('/cleanup', async (req, res) => {
   }
 });
 
+// Update keyframe order for a project
+router.put('/:id/keyframe-order', async (req, res) => {
+  try {
+    const projectId = req.params.id;
+    const { keyframeOrder } = req.body;
+
+    if (!keyframeOrder || !Array.isArray(keyframeOrder)) {
+      return res.status(400).json({
+        success: false,
+        error: 'keyframeOrder array is required'
+      });
+    }
+
+    console.log(`Updating keyframe order for project ${projectId}:`, keyframeOrder);
+
+    // Get the current project
+    const project = await projectManager.getProject(projectId);
+    if (!project) {
+      return res.status(404).json({
+        success: false,
+        error: 'Project not found'
+      });
+    }
+
+    // Reorder the keyframes array based on the new order
+    const reorderedKeyframes = [];
+    const keyframeMap = new Map();
+
+    // Create a map of ID to keyframe data (prefer ID, fallback to filename for backwards compatibility)
+    project.keyframes.forEach(keyframe => {
+      if (keyframe.id) {
+        keyframeMap.set(keyframe.id, keyframe);
+      }
+      // Also map by filename for backwards compatibility
+      if (keyframe.filename) {
+        keyframeMap.set(keyframe.filename, keyframe);
+      }
+    });
+
+    // Build the new keyframes array in the specified order
+    keyframeOrder.forEach((item, index) => {
+      // Try to find by ID first, then by filename for backwards compatibility
+      let keyframe = null;
+      if (item.id) {
+        keyframe = keyframeMap.get(item.id);
+      } else if (item.filename) {
+        keyframe = keyframeMap.get(item.filename);
+      }
+
+      if (keyframe) {
+        reorderedKeyframes.push({
+          ...keyframe,
+          index: index
+        });
+      }
+    });
+
+    // Update the project with the new order
+    const updatedProject = await projectManager.updateProject(projectId, {
+      keyframes: reorderedKeyframes,
+      updatedAt: new Date().toISOString()
+    });
+
+    res.json({
+      success: true,
+      project: updatedProject,
+      message: `Reordered ${reorderedKeyframes.length} keyframes`
+    });
+
+  } catch (error) {
+    console.error('Error updating keyframe order:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
 module.exports = router;

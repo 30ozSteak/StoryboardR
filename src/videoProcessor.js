@@ -74,9 +74,11 @@ router.post('/process', async (req, res) => {
 
         // Return keyframes info with timestamp data if available
         const keyframes = extractionResult.keyframes.map((filename, index) => ({
+          id: uuidv4(), // Generate unique ID for each keyframe
           filename,
           url: `/keyframes/${sessionId}/${filename}`,
-          timestamp: extractionResult.timestamps ? extractionResult.timestamps[index] : index * 2 // fallback estimate
+          timestamp: extractionResult.timestamps ? extractionResult.timestamps[index] : index * 2, // fallback estimate
+          index: index // Keep index for backwards compatibility
         }));
 
         const result = {
@@ -209,9 +211,11 @@ router.post('/process-url', async (req, res) => {
 
     // Return keyframes info with timestamp data if available
     const keyframes = extractionResult.keyframes.map((filename, index) => ({
+      id: uuidv4(), // Generate unique ID for each keyframe
       filename,
       url: `/keyframes/${sessionId}/${filename}`,
-      timestamp: extractionResult.timestamps ? extractionResult.timestamps[index] : index * 2 // fallback estimate
+      timestamp: extractionResult.timestamps ? extractionResult.timestamps[index] : index * 2, // fallback estimate
+      index: index // Keep index for backwards compatibility
     }));
 
     res.json({
@@ -675,6 +679,159 @@ router.get('/jobs/stats', async (req, res) => {
     res.status(500).json({
       error: 'Failed to get job statistics',
       message: error.message
+    });
+  }
+});
+
+// Extract single frame at timestamp (for scrubbing)
+router.post('/scrub', async (req, res) => {
+  try {
+    const { sessionId, timestamp, frameFilename } = req.body;
+
+    if (!sessionId || timestamp === undefined || !frameFilename) {
+      return res.status(400).json({
+        error: 'sessionId, timestamp, and frameFilename are required'
+      });
+    }
+
+    console.log(`Scrubbing frame for session ${sessionId} at timestamp ${timestamp}s`);
+
+    const tempDir = path.join(__dirname, '..', 'temp');
+    const videoPath = path.join(tempDir, 'uploads', `${sessionId}.mp4`);
+    const keyframesDir = path.join(tempDir, 'keyframes', sessionId);
+
+    // Check if video file exists
+    if (!await fs.pathExists(videoPath)) {
+      return res.status(404).json({
+        error: 'Original video file not found for this session'
+      });
+    }
+
+    // Ensure keyframes directory exists
+    await fs.ensureDir(keyframesDir);
+
+    // Generate a temporary filename for the scrubbed frame
+    const scrubFilename = `scrub_${Date.now()}_${frameFilename}`;
+    const outputPath = path.join(keyframesDir, scrubFilename);
+
+    // Extract frame at the specified timestamp
+    const extractedFilename = await keyframeExtractor.extractFrameAtTimestamp(
+      videoPath,
+      outputPath,
+      timestamp,
+      { quality: 2 }
+    );
+
+    // Return the new frame data
+    res.json({
+      success: true,
+      originalFrame: frameFilename,
+      newFrame: {
+        filename: extractedFilename,
+        url: `/keyframes/${sessionId}/${extractedFilename}`,
+        timestamp: timestamp
+      }
+    });
+
+  } catch (error) {
+    console.error('Error during frame scrubbing:', error);
+    res.status(500).json({
+      error: 'Failed to extract frame at timestamp',
+      details: error.message
+    });
+  }
+});
+
+// Save scrubbed frame as a permanent keyframe
+router.post('/save-scrubbed-frame', async (req, res) => {
+  try {
+    const { sessionId, scrubFilename, originalFrameFilename, timestamp } = req.body;
+
+    if (!sessionId || !scrubFilename || !originalFrameFilename) {
+      return res.status(400).json({
+        error: 'sessionId, scrubFilename, and originalFrameFilename are required'
+      });
+    }
+
+    console.log(`Saving scrubbed frame ${scrubFilename} for session ${sessionId}`);
+
+    const tempDir = path.join(__dirname, '..', 'temp');
+    const keyframesDir = path.join(tempDir, 'keyframes', sessionId);
+    const scrubPath = path.join(keyframesDir, scrubFilename);
+
+    // Check if scrubbed frame exists
+    if (!await fs.pathExists(scrubPath)) {
+      return res.status(404).json({
+        error: 'Scrubbed frame not found'
+      });
+    }
+
+    // Generate a new permanent filename
+    const timestamp_str = String(Math.floor(Date.now() / 1000)).padStart(10, '0');
+    const frame_num = String(Date.now() % 10000).padStart(4, '0');
+    const permanentFilename = `keyframe_${timestamp_str}_${frame_num}.jpg`;
+    const permanentPath = path.join(keyframesDir, permanentFilename);
+
+    // Copy the scrubbed frame to a permanent filename
+    await fs.copy(scrubPath, permanentPath);
+
+    // Clean up the temporary scrub file
+    await fs.remove(scrubPath);
+
+    res.json({
+      success: true,
+      newKeyframe: {
+        id: uuidv4(), // Generate unique ID for the new keyframe
+        filename: permanentFilename,
+        url: `/keyframes/${sessionId}/${permanentFilename}`,
+        timestamp: timestamp || 0,
+        insertAfter: originalFrameFilename
+      }
+    });
+
+  } catch (error) {
+    console.error('Error saving scrubbed frame:', error);
+    res.status(500).json({
+      error: 'Failed to save scrubbed frame',
+      details: error.message
+    });
+  }
+});
+
+// Clean up temporary scrubbed frame
+router.delete('/scrub/:filename', async (req, res) => {
+  try {
+    const { filename } = req.params;
+    const { sessionId } = req.body;
+
+    if (!sessionId || !filename) {
+      return res.status(400).json({
+        error: 'sessionId and filename are required'
+      });
+    }
+
+    console.log(`Cleaning up scrubbed frame ${filename} for session ${sessionId}`);
+
+    const tempDir = path.join(__dirname, '..', 'temp');
+    const keyframesDir = path.join(tempDir, 'keyframes', sessionId);
+    const scrubPath = path.join(keyframesDir, filename);
+
+    // Check if scrubbed frame exists and remove it
+    if (await fs.pathExists(scrubPath)) {
+      await fs.remove(scrubPath);
+      console.log(`Cleaned up scrubbed frame: ${filename}`);
+    }
+
+    res.json({
+      success: true,
+      message: 'Scrubbed frame cleaned up'
+    });
+
+  } catch (error) {
+    console.error('Error cleaning up scrubbed frame:', error);
+    res.status(500).json({
+      error: 'Failed to clean up scrubbed frame',
+      details: error.message
     });
   }
 });

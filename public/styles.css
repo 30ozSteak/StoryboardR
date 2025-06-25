@@ -72,3 +72,48 @@
         padding: 1.5rem;
     }
 }
+
+/* Force Dark Theme - Override any conflicting styles */
+html,
+body {
+    background: #222222 !important;
+    background-color: #222222 !important;
+    color: #f8fafc !important;
+}
+
+/* Ensure all main containers are transparent */
+.container,
+div.container,
+main,
+section {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Mouse gradient variables - ensure they're available */
+:root {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+/* Force mouse gradient overlay */
+body::before {
+    content: '' !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.06) 0%,
+            rgba(255, 255, 255, 0.02) 40%,
+            transparent 70%) !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+body.mouse-active::before {
+    opacity: 1 !important;
+}
