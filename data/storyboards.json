@@ -1,3 +1,30 @@
 {
-  "storyboards": []
+  "storyboards": [
+    {
+      "id": "a8ce281e-b882-4a76-8f5e-5ecab2181ed9",
+      "name": "Updated Test Storyboard",
+      "description": "Updated description for testing",
+      "videoSource": "https://example.com/video.mp4",
+      "keyframes": [
+        {
+          "filename": "keyframe_001.jpg",
+          "url": "http://localhost:3000/keyframes/test/keyframe_001.jpg",
+          "timestamp": 0,
+          "index": 0
+        },
+        {
+          "filename": "keyframe_002.jpg",
+          "url": "http://localhost:3000/keyframes/test/keyframe_002.jpg",
+          "timestamp": 5,
+          "index": 1
+        }
+      ],
+      "metadata": {
+        "created_by": "test-script",
+        "version": "1.0"
+      },
+      "createdAt": "2025-06-25T03:15:35.262Z",
+      "updatedAt": "2025-06-25T03:15:35.299Z"
+    }
+  ]
 }

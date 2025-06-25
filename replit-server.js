@@ -2,34 +2,29 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs-extra');
-const videoProcessor = require('./src/videoProcessor');
-const fileUpload = require('./src/fileUpload');
-const cookieManager = require('./src/cookieManager');
-const projectRoutes = require('./src/projectRoutes');
-const SessionCleanup = require('./src/sessionCleanup');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Initialize session cleanup
-const sessionCleanup = new SessionCleanup();
-
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000', 
+    'http://localhost:8000',
+    'http://localhost:5000',
+    /^https:\/\/.*\.repl\.co$/,  // Allow all repl.co domains
+    /^https:\/\/.*\.replit\.dev$/  // Allow all replit.dev domains
+  ],
+  credentials: true
+}));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
-// Create temp directories if they don't exist
-const tempDir = path.join(__dirname, 'temp');
-const uploadsDir = path.join(__dirname, 'temp', 'uploads');
-const keyframesDir = path.join(__dirname, 'temp', 'keyframes');
+// Create data directory if it doesn't exist
 const dataDir = path.join(__dirname, 'data');
 const storyboardsFile = path.join(dataDir, 'storyboards.json');
 const extractionsFile = path.join(dataDir, 'extractions.json');
 
-fs.ensureDirSync(tempDir);
-fs.ensureDirSync(uploadsDir);
-fs.ensureDirSync(keyframesDir);
 fs.ensureDirSync(dataDir);
 
 // Initialize data files if they don't exist
@@ -40,20 +35,48 @@ if (!fs.existsSync(extractionsFile)) {
   fs.writeFileSync(extractionsFile, JSON.stringify({ extractions: [] }, null, 2));
 }
 
-// Routes
-app.use('/api/upload', fileUpload);
-app.use('/api/video', videoProcessor);
-app.use('/api/cookies', cookieManager);
-app.use('/api/projects', projectRoutes);
+// Health check
+app.get('/health', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    message: 'StoryboardR API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    name: 'StoryboardR API',
+    version: '1.0.0',
+    description: 'Lightweight API for StoryboardR data persistence',
+    endpoints: {
+      health: '/health',
+      storyboards: {
+        create: 'POST /api/storyboards',
+        list: 'GET /api/storyboards',
+        get: 'GET /api/storyboards/:id',
+        update: 'PUT /api/storyboards/:id',
+        delete: 'DELETE /api/storyboards/:id'
+      },
+      extractions: {
+        create: 'POST /api/extractions',
+        list: 'GET /api/extractions',
+        get: 'GET /api/extractions/:id',
+        delete: 'DELETE /api/extractions/:id'
+      }
+    }
+  });
+});
 
 // Storyboard API endpoints
 app.post('/api/storyboards', async (req, res) => {
   try {
     const { name, description, keyframes, videoSource, metadata } = req.body;
-
+    
     if (!name || !keyframes || !Array.isArray(keyframes)) {
-      return res.status(400).json({
-        error: 'Invalid storyboard data. Name and keyframes array required.'
+      return res.status(400).json({ 
+        error: 'Invalid storyboard data. Name and keyframes array required.' 
       });
     }
 
@@ -72,9 +95,13 @@ app.post('/api/storyboards', async (req, res) => {
     data.storyboards.push(storyboard);
     await fs.writeJSON(storyboardsFile, data, { spaces: 2 });
 
-    res.status(201).json({
-      success: true,
-      storyboard: { id: storyboard.id, name: storyboard.name, createdAt: storyboard.createdAt }
+    res.status(201).json({ 
+      success: true, 
+      storyboard: { 
+        id: storyboard.id, 
+        name: storyboard.name, 
+        createdAt: storyboard.createdAt 
+      }
     });
   } catch (error) {
     console.error('Error saving storyboard:', error);
@@ -106,7 +133,7 @@ app.get('/api/storyboards/:id', async (req, res) => {
     const { id } = req.params;
     const data = await fs.readJSON(storyboardsFile);
     const storyboard = data.storyboards.find(sb => sb.id === id);
-
+    
     if (!storyboard) {
       return res.status(404).json({ error: 'Storyboard not found' });
     }
@@ -122,10 +149,10 @@ app.put('/api/storyboards/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { name, description, keyframes, videoSource, metadata } = req.body;
-
+    
     const data = await fs.readJSON(storyboardsFile);
     const storyboardIndex = data.storyboards.findIndex(sb => sb.id === id);
-
+    
     if (storyboardIndex === -1) {
       return res.status(404).json({ error: 'Storyboard not found' });
     }
@@ -154,7 +181,7 @@ app.delete('/api/storyboards/:id', async (req, res) => {
     const data = await fs.readJSON(storyboardsFile);
     const initialLength = data.storyboards.length;
     data.storyboards = data.storyboards.filter(sb => sb.id !== id);
-
+    
     if (data.storyboards.length === initialLength) {
       return res.status(404).json({ error: 'Storyboard not found' });
     }
@@ -171,10 +198,10 @@ app.delete('/api/storyboards/:id', async (req, res) => {
 app.post('/api/extractions', async (req, res) => {
   try {
     const { videoUrl, sessionId, keyframes, settings, metadata } = req.body;
-
+    
     if (!videoUrl || !keyframes || !Array.isArray(keyframes)) {
-      return res.status(400).json({
-        error: 'Invalid extraction data. Video URL and keyframes array required.'
+      return res.status(400).json({ 
+        error: 'Invalid extraction data. Video URL and keyframes array required.' 
       });
     }
 
@@ -192,13 +219,13 @@ app.post('/api/extractions', async (req, res) => {
     data.extractions.push(extraction);
     await fs.writeJSON(extractionsFile, data, { spaces: 2 });
 
-    res.status(201).json({
-      success: true,
-      extraction: {
-        id: extraction.id,
+    res.status(201).json({ 
+      success: true, 
+      extraction: { 
+        id: extraction.id, 
         sessionId: extraction.sessionId,
         keyframeCount: extraction.keyframes.length,
-        createdAt: extraction.createdAt
+        createdAt: extraction.createdAt 
       }
     });
   } catch (error) {
@@ -229,7 +256,7 @@ app.get('/api/extractions/:id', async (req, res) => {
     const { id } = req.params;
     const data = await fs.readJSON(extractionsFile);
     const extraction = data.extractions.find(ext => ext.id === id);
-
+    
     if (!extraction) {
       return res.status(404).json({ error: 'Extraction not found' });
     }
@@ -247,7 +274,7 @@ app.delete('/api/extractions/:id', async (req, res) => {
     const data = await fs.readJSON(extractionsFile);
     const initialLength = data.extractions.length;
     data.extractions = data.extractions.filter(ext => ext.id !== id);
-
+    
     if (data.extractions.length === initialLength) {
       return res.status(404).json({ error: 'Extraction not found' });
     }
@@ -260,28 +287,6 @@ app.delete('/api/extractions/:id', async (req, res) => {
   }
 });
 
-// Serve static files FIRST (before SPA catch-all)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Serve static keyframe images
-app.use('/keyframes', express.static(keyframesDir));
-
-// SPA catch-all - serve app.html for ALL non-API routes
-app.get('*', (req, res, next) => {
-  // Only serve SPA for non-API routes
-  if (req.path.startsWith('/api/')) {
-    return next(); // Let API routes handle themselves
-  }
-
-  // Serve the SPA for ALL other routes (including root)
-  res.sendFile(path.join(__dirname, 'public', 'app.html'));
-});
-
-// Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Video Keyframes Extractor API is running' });
-});
-
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -291,26 +296,24 @@ app.use((err, req, res, next) => {
   });
 });
 
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({
+    error: 'Endpoint not found',
+    availableEndpoints: {
+      root: 'GET /',
+      health: 'GET /health',
+      storyboards: 'GET /api/storyboards',
+      extractions: 'GET /api/extractions'
+    }
+  });
+});
+
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/health`);
-
-  // Start automatic session cleanup
-  sessionCleanup.startAutomaticCleanup();
-});
-
-// Graceful shutdown
-process.on('SIGINT', () => {
-  console.log('\nReceived SIGINT. Graceful shutdown...');
-  sessionCleanup.stopAutomaticCleanup();
-  process.exit(0);
-});
-
-process.on('SIGTERM', () => {
-  console.log('\nReceived SIGTERM. Graceful shutdown...');
-  sessionCleanup.stopAutomaticCleanup();
-  process.exit(0);
+  console.log(`🚀 StoryboardR API is running on port ${PORT}`);
+  console.log(`📋 Health check: http://localhost:${PORT}/health`);
+  console.log(`📖 API docs: http://localhost:${PORT}/`);
 });
 
 module.exports = app;

@@ -1,3 +1,39 @@
 {
-  "extractions": []
+  "extractions": [
+    {
+      "id": "c20dd6b7-a5cd-48d0-9e22-c3dc7a063812",
+      "videoUrl": "https://example.com/test-video.mp4",
+      "sessionId": "test-session-123",
+      "keyframes": [
+        {
+          "filename": "frame_001.jpg",
+          "url": "http://localhost:3000/keyframes/test-session-123/frame_001.jpg",
+          "timestamp": 0,
+          "index": 0
+        },
+        {
+          "filename": "frame_002.jpg",
+          "url": "http://localhost:3000/keyframes/test-session-123/frame_002.jpg",
+          "timestamp": 3,
+          "index": 1
+        },
+        {
+          "filename": "frame_003.jpg",
+          "url": "http://localhost:3000/keyframes/test-session-123/frame_003.jpg",
+          "timestamp": 6,
+          "index": 2
+        }
+      ],
+      "settings": {
+        "interval": 3,
+        "quality": "medium",
+        "maxFrames": 20
+      },
+      "metadata": {
+        "created_by": "test-script",
+        "purpose": "API validation"
+      },
+      "createdAt": "2025-06-25T03:15:35.309Z"
+    }
+  ]
 }

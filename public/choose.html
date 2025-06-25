@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoryboardR - App Structure</title>
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #222222 !important;
+      color: #f8fafc !important;
+      padding: 2rem;
+    }
+
+    .app-structure-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .app-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .app-option {
+      background: #2a2a2a;
+      border: 1px solid #404040;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .app-option:hover {
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    .app-option i {
+      font-size: 3rem;
+      color: #3b82f6;
+      margin-bottom: 1rem;
+    }
+
+    .app-option h3 {
+      margin: 0 0 1rem 0;
+      color: #f8fafc;
+    }
+
+    .app-option p {
+      margin: 0 0 1.5rem 0;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    .feature-list {
+      text-align: left;
+      margin: 1rem 0;
+    }
+
+    .feature-list li {
+      color: #94a3b8;
+      margin: 0.5rem 0;
+    }
+
+    .feature-list li i {
+      color: #22c55e;
+      margin-right: 0.5rem;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-structure-container">
+    <h1>
+      <i class="fas fa-rocket"></i>
+      StoryboardR App Structure
+    </h1>
+    <p>Choose how you'd like to use StoryboardR:</p>
+
+    <div class="app-options">
+      <!-- SPA Version -->
+      <div class="app-option">
+        <i class="fas fa-magic"></i>
+        <h3>Single Page App (SPA)</h3>
+        <p>Modern, fast, and seamless navigation with hash-based routing.</p>
+
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Hash-based routing (#home, #editor, #story/:id)</li>
+          <li><i class="fas fa-check"></i> No page reloads</li>
+          <li><i class="fas fa-check"></i> Smooth transitions</li>
+          <li><i class="fas fa-check"></i> Modern navigation bar</li>
+          <li><i class="fas fa-check"></i> Unified app experience</li>
+        </ul>
+
+        <a href="/app#home" class="btn">
+          <i class="fas fa-play"></i>
+          Launch SPA
+        </a>
+      </div>
+
+      <!-- Traditional Multi-Page -->
+      <div class="app-option">
+        <i class="fas fa-window-restore"></i>
+        <h3>Traditional Multi-Page</h3>
+        <p>Original separate pages for different functions.</p>
+
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Dashboard: Project management</li>
+          <li><i class="fas fa-check"></i> Extractor: Video keyframe extraction</li>
+          <li><i class="fas fa-check"></i> Status: System monitoring</li>
+          <li><i class="fas fa-check"></i> Familiar web navigation</li>
+        </ul>
+
+        <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem;">
+          <a href="/" class="btn" style="background: #6b7280;">
+            <i class="fas fa-home"></i>
+            Dashboard
+          </a>
+          <a href="/extract" class="btn" style="background: #6b7280;">
+            <i class="fas fa-video"></i>
+            Extractor
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="margin-top: 3rem; padding: 2rem; background: #2a2a2a; border-radius: 0.5rem; border: 1px solid #404040;">
+      <h3><i class="fas fa-info-circle"></i> SPA Features</h3>
+      <p style="color: #cbd5e1; margin: 1rem 0;">The Single Page Application includes:</p>
+
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left;">
+        <div>
+          <strong style="color: #3b82f6;">#home</strong>
+          <p style="color: #94a3b8; font-size: 0.875rem;">Dashboard & project management</p>
+        </div>
+        <div>
+          <strong style="color: #3b82f6;">#extract</strong>
+          <p style="color: #94a3b8; font-size: 0.875rem;">Video keyframe extraction</p>
+        </div>
+        <div>
+          <strong style="color: #3b82f6;">#editor</strong>
+          <p style="color: #94a3b8; font-size: 0.875rem;">Storyboard editing interface</p>
+        </div>
+        <div>
+          <strong style="color: #3b82f6;">#story/:id</strong>
+          <p style="color: #94a3b8; font-size: 0.875rem;">Individual story viewer</p>
+        </div>
+        <div>
+          <strong style="color: #3b82f6;">#settings</strong>
+          <p style="color: #94a3b8; font-size: 0.875rem;">App configuration</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem;">
+      <a href="/status" class="btn" style="background: #10b981;">
+        <i class="fas fa-heartbeat"></i>
+        System Status
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Mouse gradient functionality
+    let mouseTimeout;
+
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+
+      document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+      document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+
+      document.body.classList.add('mouse-active');
+
+      if (mouseTimeout) {
+        clearTimeout(mouseTimeout);
+      }
+
+      mouseTimeout = setTimeout(() => {
+        document.body.classList.remove('mouse-active');
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>

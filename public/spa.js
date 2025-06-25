@@ -38,6 +38,9 @@ class StoryboardSPA {
     // Handle initial route
     this.handleInitialRoute();
 
+    // Initialize with some sample data if empty
+    this.initializeSampleData();
+
     console.log('✅ SPA initialized successfully');
   }
 
@@ -650,12 +653,8 @@ class StoryboardSPA {
           quality: document.getElementById('quality')?.value || 'medium'
         };
 
-        // Use SPA integration if available
-        if (window.spaIntegration && this.extractKeyframes) {
-          this.extractKeyframes(videoData);
-        } else {
-          this.showNotification('Video extraction will be implemented', 'info');
-        }
+        // For now, simulate extraction and show placeholder results
+        this.simulateExtraction(videoData);
       } else {
         this.showNotification('Please enter a video URL', 'error');
       }
@@ -705,17 +704,20 @@ class StoryboardSPA {
   // Helper Methods
   async loadProjects() {
     try {
-      const response = await fetch('/api/projects');
-      const data = await response.json();
+      // Use localStorage directly for reliable offline-first experience
+      const storedStoryboards = JSON.parse(localStorage.getItem('storyboardr_storyboards') || '{"storyboards":[]}');
+      const projects = storedStoryboards.storyboards || [];
 
-      if (data.projects && data.projects.length > 0) {
-        this.renderProjects(data.projects);
+      console.log('📦 Loaded projects from localStorage:', projects.length);
+
+      if (projects.length > 0) {
+        this.renderProjects(projects);
         document.getElementById('emptyState').style.display = 'none';
       } else {
         document.getElementById('emptyState').style.display = 'block';
       }
     } catch (error) {
-      console.error('Error loading projects:', error);
+      console.error('Error loading projects from localStorage:', error);
       document.getElementById('emptyState').style.display = 'block';
     }
   }
@@ -727,8 +729,8 @@ class StoryboardSPA {
     grid.innerHTML = projects.map(project => `
       <div class="project-card" onclick="window.spa.navigate('story', '${project.id}')">
         <div class="project-thumbnail">
-          ${project.thumbnail ?
-        `<img src="${project.thumbnail}" alt="${project.name}" />` :
+          ${project.thumbnail || (project.keyframes && project.keyframes[0] && project.keyframes[0].thumbnail) ?
+        `<img src="${project.thumbnail || project.keyframes[0].thumbnail}" alt="${project.name}" />` :
         '<i class="fas fa-film"></i>'
       }
         </div>
@@ -736,8 +738,8 @@ class StoryboardSPA {
           <h3>${project.name}</h3>
           <p>${project.description || 'No description'}</p>
           <div class="project-meta">
-            <span><i class="fas fa-calendar"></i> ${new Date(project.created).toLocaleDateString()}</span>
-            <span><i class="fas fa-images"></i> ${project.frameCount || 0} frames</span>
+            <span><i class="fas fa-calendar"></i> ${new Date(project.createdAt || project.created || Date.now()).toLocaleDateString()}</span>
+            <span><i class="fas fa-images"></i> ${(project.keyframes && project.keyframes.length) || project.frameCount || 0} frames</span>
           </div>
         </div>
       </div>
@@ -746,34 +748,65 @@ class StoryboardSPA {
 
   async loadStory(id) {
     try {
-      // Simulate loading delay
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Load from localStorage
+      const storedStoryboards = JSON.parse(localStorage.getItem('storyboardr_storyboards') || '{"storyboards":[]}');
+      const story = storedStoryboards.storyboards.find(s => s.id === id);
 
-      document.getElementById('storyContent').innerHTML = `
-        <div class="story-details">
-          <h3>Story Details</h3>
-          <p>Story ID: ${id}</p>
-          <p>This is where the story content would be displayed.</p>
-          
-          <div class="story-frames">
-            <h4>Frames</h4>
-            <div class="frames-grid">
-              <div class="frame-item">
-                <div class="frame-placeholder">
-                  <i class="fas fa-image"></i>
-                  <p>Frame 1</p>
-                </div>
-              </div>
-              <div class="frame-item">
-                <div class="frame-placeholder">
-                  <i class="fas fa-image"></i>
-                  <p>Frame 2</p>
-                </div>
+      if (story) {
+        document.getElementById('storyContent').innerHTML = `
+          <div class="story-details">
+            <h3>${story.name}</h3>
+            <p>${story.description || 'No description'}</p>
+            <div class="story-meta">
+              <span><i class="fas fa-calendar"></i> Created: ${new Date(story.createdAt).toLocaleDateString()}</span>
+              <span><i class="fas fa-images"></i> ${story.keyframes ? story.keyframes.length : 0} frames</span>
+              ${story.videoSource ? `<span><i class="fas fa-video"></i> Source: ${story.videoSource}</span>` : ''}
+            </div>
+            
+            <div class="story-frames">
+              <h4>Keyframes</h4>
+              <div class="frames-grid">
+                ${story.keyframes && story.keyframes.length > 0 ?
+            story.keyframes.map((frame, index) => `
+                    <div class="frame-item">
+                      <div class="frame-content">
+                        ${frame.thumbnail ?
+                `<img src="${frame.thumbnail}" alt="Frame ${index + 1}" />` :
+                `<div class="frame-placeholder">
+                            <i class="fas fa-image"></i>
+                            <p>Frame ${index + 1}</p>
+                          </div>`
+              }
+                        ${frame.timestamp ? `<span class="frame-time">${frame.timestamp}s</span>` : ''}
+                      </div>
+                    </div>
+                  `).join('') :
+            `<div class="empty-frames">
+                    <i class="fas fa-images"></i>
+                    <p>No frames in this storyboard yet</p>
+                    <button class="btn btn-primary" onclick="window.spa.navigate('extract')">
+                      <i class="fas fa-plus"></i>
+                      Extract Frames
+                    </button>
+                  </div>`
+          }
               </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
+      } else {
+        document.getElementById('storyContent').innerHTML = `
+          <div class="error-state">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Story Not Found</h3>
+            <p>Could not find story with ID: ${id}</p>
+            <button class="btn btn-secondary" onclick="window.spa.navigate('home')">
+              <i class="fas fa-arrow-left"></i>
+              Back to Dashboard
+            </button>
+          </div>
+        `;
+      }
     } catch (error) {
       console.error('Error loading story:', error);
       document.getElementById('storyContent').innerHTML = `
@@ -781,6 +814,10 @@ class StoryboardSPA {
           <i class="fas fa-exclamation-triangle"></i>
           <h3>Error Loading Story</h3>
           <p>Could not load story with ID: ${id}</p>
+          <button class="btn btn-secondary" onclick="window.spa.navigate('home')">
+            <i class="fas fa-arrow-left"></i>
+            Back to Dashboard
+          </button>
         </div>
       `;
     }
@@ -846,8 +883,37 @@ class StoryboardSPA {
           </div>
           
           <div class="new-project-options">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--text-primary, #f8fafc);">How would you like to create your project?</h4>
-            <p class="modal-description" style="margin: 0 0 1.5rem 0; color: var(--text-secondary, #cbd5e1);">Choose your starting point for the new video project.</p>
+            <h4 style="margin: 0 0 0.5rem 0; color: var(--text-primary, #f8fafc);">Create New Project</h4>
+            <p class="modal-description" style="margin: 0 0 1.5rem 0; color: var(--text-secondary, #cbd5e1);">Enter project details to get started.</p>
+
+            <form id="newProjectForm" style="margin-bottom: 1.5rem;">
+              <div style="margin-bottom: 1rem;">
+                <label for="projectName" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary, #f8fafc); font-weight: 500;">Project Name</label>
+                <input type="text" id="projectName" required placeholder="Enter project name..." style="
+                  width: 100%;
+                  padding: 0.75rem;
+                  background: var(--bg-tertiary, #1a1a1a);
+                  border: 1px solid var(--border-primary, #404040);
+                  border-radius: 0.375rem;
+                  color: var(--text-primary, #f8fafc);
+                  font-size: 0.875rem;
+                " />
+              </div>
+              
+              <div style="margin-bottom: 1.5rem;">
+                <label for="projectDescription" style="display: block; margin-bottom: 0.5rem; color: var(--text-primary, #f8fafc); font-weight: 500;">Description (optional)</label>
+                <textarea id="projectDescription" placeholder="Describe your project..." rows="3" style="
+                  width: 100%;
+                  padding: 0.75rem;
+                  background: var(--bg-tertiary, #1a1a1a);
+                  border: 1px solid var(--border-primary, #404040);
+                  border-radius: 0.375rem;
+                  color: var(--text-primary, #f8fafc);
+                  font-size: 0.875rem;
+                  resize: vertical;
+                "></textarea>
+              </div>
+            </form>
 
             <div class="project-option-cards" style="
               display: grid;
@@ -928,14 +994,46 @@ class StoryboardSPA {
     optionCards.forEach(card => {
       card.addEventListener('click', () => {
         const action = card.getAttribute('data-action');
-        if (action === 'video') {
-          console.log('🎬 Navigating to extract via SPA');
-          this.navigate('extract');
-        } else {
-          console.log('✏️ Navigating to editor via SPA');
-          this.navigate('editor');
+        const form = document.getElementById('newProjectForm');
+        const nameInput = document.getElementById('projectName');
+        const descriptionInput = document.getElementById('projectDescription');
+
+        // Validate form
+        if (!nameInput.value.trim()) {
+          nameInput.focus();
+          this.showNotification('Please enter a project name', 'error');
+          return;
         }
-        closeModal();
+
+        // Create project data
+        const projectData = {
+          name: nameInput.value.trim(),
+          description: descriptionInput.value.trim()
+        };
+
+        // Create the project
+        const project = this.createProject(projectData);
+
+        if (project) {
+          closeModal();
+
+          if (action === 'video') {
+            console.log('🎬 Creating project and navigating to extract');
+            // Store current project ID for extraction
+            sessionStorage.setItem('currentProjectId', project.id);
+            this.navigate('extract');
+          } else {
+            console.log('✏️ Creating project and navigating to editor');
+            // Store current project ID for editing
+            sessionStorage.setItem('currentProjectId', project.id);
+            this.navigate('editor');
+          }
+
+          // Refresh dashboard to show new project
+          if (this.currentView === 'home') {
+            this.loadProjects();
+          }
+        }
       });
 
       // Add hover effect
@@ -961,113 +1059,218 @@ class StoryboardSPA {
   handleVideoUpload(file) {
     console.log('📹 Handling video upload:', file.name);
 
+    if (!file.type.startsWith('video/')) {
+      this.showNotification('Please select a valid video file', 'error');
+      return;
+    }
+
     const videoData = {
       file: file,
+      filename: file.name,
       interval: document.getElementById('frameInterval')?.value || 1,
       maxFrames: document.getElementById('maxFrames')?.value || 50,
       quality: document.getElementById('quality')?.value || 'medium'
     };
 
-    // Use SPA integration if available
-    if (window.spaIntegration && this.extractKeyframes) {
-      this.extractKeyframes(videoData);
-    } else {
-      this.showNotification('Video extraction will be implemented', 'info');
+    // Simulate extraction from uploaded file
+    this.simulateExtraction(videoData);
+  }
+
+  simulateExtraction(videoData) {
+    console.log('🎬 Simulating keyframe extraction for:', videoData);
+
+    // Show loading state
+    const resultsDiv = document.getElementById('extractionResults');
+    const keyframesGrid = document.getElementById('keyframesGrid');
+
+    if (resultsDiv) {
+      resultsDiv.style.display = 'block';
+      keyframesGrid.innerHTML = '<div class="loading">Extracting keyframes...</div>';
+    }
+
+    // Simulate extraction delay
+    setTimeout(() => {
+      // Generate mock keyframes
+      const mockKeyframes = this.generateMockKeyframes(videoData);
+      this.displayExtractedKeyframes(mockKeyframes, videoData);
+    }, 2000);
+  }
+
+  generateMockKeyframes(videoData) {
+    const maxFrames = parseInt(videoData.maxFrames) || 5;
+    const interval = parseInt(videoData.interval) || 1;
+    const keyframes = [];
+
+    for (let i = 0; i < Math.min(maxFrames, 8); i++) {
+      keyframes.push({
+        id: `frame_${Date.now()}_${i}`,
+        timestamp: i * interval,
+        thumbnail: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><rect width="300" height="200" fill="%23374151"/><text x="150" y="100" text-anchor="middle" fill="%23f8fafc" font-family="Arial, sans-serif" font-size="16">Frame ${i + 1}</text><text x="150" y="120" text-anchor="middle" fill="%239ca3af" font-family="Arial, sans-serif" font-size="12">${i * interval}s</text></svg>`,
+        metadata: {
+          quality: videoData.quality,
+          source: videoData.url || 'uploaded file'
+        }
+      });
+    }
+
+    return keyframes;
+  }
+
+  displayExtractedKeyframes(keyframes, videoData) {
+    const keyframesGrid = document.getElementById('keyframesGrid');
+
+    if (!keyframesGrid) return;
+
+    keyframesGrid.innerHTML = keyframes.map(frame => `
+      <div class="keyframe-item" data-frame-id="${frame.id}">
+        <div class="keyframe-content">
+          <img src="${frame.thumbnail}" alt="Frame at ${frame.timestamp}s" />
+          <div class="keyframe-info">
+            <span class="timestamp">${frame.timestamp}s</span>
+            <button class="btn-small btn-remove" onclick="window.spa.removeKeyframe('${frame.id}')">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Update results actions
+    const resultsActions = document.querySelector('.results-actions');
+    if (resultsActions) {
+      resultsActions.innerHTML = `
+        <button class="btn btn-primary" onclick="window.spa.saveExtractedFrames()">
+          <i class="fas fa-save"></i>
+          Save to Project
+        </button>
+        <button class="btn btn-secondary" onclick="window.spa.navigate('editor')">
+          <i class="fas fa-edit"></i>
+          Edit in Storyboard
+        </button>
+        <button class="btn btn-secondary" id="downloadFramesBtn">
+          <i class="fas fa-download"></i>
+          Download Frames
+        </button>
+      `;
+    }
+
+    // Store extracted frames for saving
+    this.extractedKeyframes = keyframes;
+    this.extractedVideoData = videoData;
+
+    this.showNotification(`Successfully extracted ${keyframes.length} keyframes!`, 'success');
+  }
+
+  removeKeyframe(frameId) {
+    if (this.extractedKeyframes) {
+      this.extractedKeyframes = this.extractedKeyframes.filter(frame => frame.id !== frameId);
+
+      const frameElement = document.querySelector(`[data-frame-id="${frameId}"]`);
+      if (frameElement) {
+        frameElement.remove();
+      }
+
+      this.showNotification('Keyframe removed', 'info');
     }
   }
 
-  loadSettings() {
-    const settings = JSON.parse(localStorage.getItem('storyboardr-settings') || '{}');
+  saveExtractedFrames() {
+    const currentProjectId = sessionStorage.getItem('currentProjectId');
 
-    // Apply saved settings to form
-    Object.keys(settings).forEach(key => {
-      const element = document.getElementById(key);
-      if (element) {
-        if (element.type === 'checkbox') {
-          element.checked = settings[key];
-        } else {
-          element.value = settings[key];
+    if (!currentProjectId) {
+      this.showNotification('No project selected. Please create a project first.', 'error');
+      return;
+    }
+
+    if (!this.extractedKeyframes || this.extractedKeyframes.length === 0) {
+      this.showNotification('No keyframes to save', 'error');
+      return;
+    }
+
+    try {
+      // Load current project
+      const storedStoryboards = JSON.parse(localStorage.getItem('storyboardr_storyboards') || '{"storyboards":[]}');
+      const projectIndex = storedStoryboards.storyboards.findIndex(p => p.id === currentProjectId);
+
+      if (projectIndex === -1) {
+        this.showNotification('Project not found', 'error');
+        return;
+      }
+
+      // Update project with keyframes
+      const project = storedStoryboards.storyboards[projectIndex];
+      project.keyframes = [...(project.keyframes || []), ...this.extractedKeyframes];
+      project.videoSource = this.extractedVideoData?.url || project.videoSource;
+      project.updatedAt = new Date().toISOString();
+
+      // Save updated project
+      localStorage.setItem('storyboardr_storyboards', JSON.stringify(storedStoryboards));
+
+      this.showNotification(`Saved ${this.extractedKeyframes.length} keyframes to project!`, 'success');
+
+      // Navigate to the project
+      this.navigate('story', currentProjectId);
+
+    } catch (error) {
+      console.error('Error saving keyframes:', error);
+      this.showNotification('Error saving keyframes', 'error');
+    }
+  }
+
+  // Initialize with some sample data if empty
+  initializeSampleData() {
+    const storedStoryboards = JSON.parse(localStorage.getItem('storyboardr_storyboards') || '{"storyboards":[]}');
+    
+    if (storedStoryboards.storyboards.length === 0) {
+      console.log('📦 No projects found, adding sample data...');
+      
+      const sampleProjects = [
+        {
+          id: 'sample_project_1',
+          name: 'Sample Video Project',
+          description: 'A demo project showing keyframe extraction features',
+          videoSource: 'https://example.com/video.mp4',
+          keyframes: [
+            {
+              id: 'frame_1',
+              timestamp: 0,
+              thumbnail: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><rect width="300" height="200" fill="%23374151"/><text x="150" y="100" text-anchor="middle" fill="%23f8fafc" font-family="Arial, sans-serif" font-size="16">Sample Frame 1</text></svg>`,
+              metadata: { quality: 'medium', source: 'sample' }
+            },
+            {
+              id: 'frame_2',
+              timestamp: 5,
+              thumbnail: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><rect width="300" height="200" fill="%23dc2626"/><text x="150" y="100" text-anchor="middle" fill="%23f8fafc" font-family="Arial, sans-serif" font-size="16">Sample Frame 2</text></svg>`,
+              metadata: { quality: 'medium', source: 'sample' }
+            },
+            {
+              id: 'frame_3',
+              timestamp: 10,
+              thumbnail: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200"><rect width="300" height="200" fill="%2316a34a"/><text x="150" y="100" text-anchor="middle" fill="%23f8fafc" font-family="Arial, sans-serif" font-size="16">Sample Frame 3</text></svg>`,
+              metadata: { quality: 'medium', source: 'sample' }
+            }
+          ],
+          createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
+          updatedAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString()  // 1 day ago
+        },
+        {
+          id: 'sample_project_2',
+          name: 'Empty Project',
+          description: 'An empty project ready for content',
+          videoSource: '',
+          keyframes: [],
+          createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(), // 1 day ago
+          updatedAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString()
         }
-      }
-    });
+      ];
+
+      storedStoryboards.storyboards = sampleProjects;
+      localStorage.setItem('storyboardr_storyboards', JSON.stringify(storedStoryboards));
+      console.log('✅ Sample data added to localStorage');
+    }
   }
 
-  saveSettings() {
-    const settings = {};
-    const formElements = document.querySelectorAll('#defaultQuality, #exportFormat, #autoSave');
-
-    formElements.forEach(element => {
-      if (element.type === 'checkbox') {
-        settings[element.id] = element.checked;
-      } else {
-        settings[element.id] = element.value;
-      }
-    });
-
-    localStorage.setItem('storyboardr-settings', JSON.stringify(settings));
-
-    // Show success message
-    this.showNotification('Settings saved successfully!', 'success');
-  }
-
-  resetSettings() {
-    localStorage.removeItem('storyboardr-settings');
-    this.loadSettings();
-    this.showNotification('Settings reset to defaults', 'info');
-  }
-
-  showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-      <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'times' : 'info'}"></i>
-      <span>${message}</span>
-    `;
-
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-      notification.classList.add('show');
-    }, 100);
-
-    setTimeout(() => {
-      notification.classList.remove('show');
-      setTimeout(() => notification.remove(), 300);
-    }, 3000);
-  }
-
-  initializeMouseGradient() {
-    let mouseTimeout;
-
-    document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-
-      document.documentElement.style.setProperty('--mouse-x', `${x}%`);
-      document.documentElement.style.setProperty('--mouse-y', `${y}%`);
-
-      document.body.classList.add('mouse-active');
-
-      if (mouseTimeout) {
-        clearTimeout(mouseTimeout);
-      }
-
-      mouseTimeout = setTimeout(() => {
-        document.body.classList.remove('mouse-active');
-      }, 1000);
-    });
-
-    document.addEventListener('mouseenter', () => {
-      document.body.classList.add('mouse-active');
-    });
-
-    document.addEventListener('mouseleave', () => {
-      document.body.classList.remove('mouse-active');
-      if (mouseTimeout) {
-        clearTimeout(mouseTimeout);
-      }
-    });
-  }
+  // ...existing code...
 }
 
 // Initialize the SPA when DOM is ready
