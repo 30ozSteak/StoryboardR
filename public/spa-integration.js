@@ -75,6 +75,12 @@ class SPAIntegration {
     
     // Keyframe management integration
     this.setupKeyframeAPI();
+    
+    // Storyboard API integration
+    this.setupStoryboardAPI();
+    
+    // Extraction API integration
+    this.setupExtractionAPI();
   }
 
   setupProjectAPI() {
@@ -233,6 +239,224 @@ class SPAIntegration {
       } catch (error) {
         console.error('Error saving keyframes:', error);
         this.spa.showNotification('Failed to save keyframes', 'error');
+      }
+    };
+  }
+
+  setupStoryboardAPI() {
+    // Save storyboard
+    this.spa.saveStoryboard = async (storyboardData) => {
+      try {
+        const response = await fetch('/api/storyboards', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(storyboardData)
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          this.spa.showNotification('Storyboard saved successfully!', 'success');
+          return result.storyboard;
+        } else {
+          const error = await response.json();
+          throw new Error(error.error || 'Failed to save storyboard');
+        }
+      } catch (error) {
+        console.error('Error saving storyboard:', error);
+        this.spa.showNotification(`Failed to save storyboard: ${error.message}`, 'error');
+        throw error;
+      }
+    };
+
+    // Load all storyboards
+    this.spa.loadStoryboards = async () => {
+      try {
+        const response = await fetch('/api/storyboards');
+        const data = await response.json();
+        
+        if (response.ok) {
+          return data.storyboards;
+        } else {
+          throw new Error(data.error || 'Failed to load storyboards');
+        }
+      } catch (error) {
+        console.error('Error loading storyboards:', error);
+        this.spa.showNotification('Failed to load storyboards', 'error');
+        return [];
+      }
+    };
+
+    // Load specific storyboard
+    this.spa.loadStoryboard = async (storyboardId) => {
+      try {
+        const response = await fetch(`/api/storyboards/${storyboardId}`);
+        const data = await response.json();
+        
+        if (response.ok) {
+          return data.storyboard;
+        } else {
+          throw new Error(data.error || 'Storyboard not found');
+        }
+      } catch (error) {
+        console.error('Error loading storyboard:', error);
+        this.spa.showNotification(`Failed to load storyboard: ${error.message}`, 'error');
+        throw error;
+      }
+    };
+
+    // Update storyboard
+    this.spa.updateStoryboard = async (storyboardId, updates) => {
+      try {
+        const response = await fetch(`/api/storyboards/${storyboardId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updates)
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          this.spa.showNotification('Storyboard updated successfully!', 'success');
+          return result.storyboard;
+        } else {
+          const error = await response.json();
+          throw new Error(error.error || 'Failed to update storyboard');
+        }
+      } catch (error) {
+        console.error('Error updating storyboard:', error);
+        this.spa.showNotification(`Failed to update storyboard: ${error.message}`, 'error');
+        throw error;
+      }
+    };
+
+    // Delete storyboard
+    this.spa.deleteStoryboard = async (storyboardId) => {
+      try {
+        const response = await fetch(`/api/storyboards/${storyboardId}`, {
+          method: 'DELETE'
+        });
+        
+        if (response.ok) {
+          this.spa.showNotification('Storyboard deleted successfully!', 'success');
+          return true;
+        } else {
+          const error = await response.json();
+          throw new Error(error.error || 'Failed to delete storyboard');
+        }
+      } catch (error) {
+        console.error('Error deleting storyboard:', error);
+        this.spa.showNotification(`Failed to delete storyboard: ${error.message}`, 'error');
+        return false;
+      }
+    };
+  }
+
+  setupExtractionAPI() {
+    // Save extraction for later revisiting
+    this.spa.saveExtraction = async (extractionData) => {
+      try {
+        const response = await fetch('/api/extractions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(extractionData)
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          this.spa.showNotification('Extraction saved for later!', 'success');
+          return result.extraction;
+        } else {
+          const error = await response.json();
+          throw new Error(error.error || 'Failed to save extraction');
+        }
+      } catch (error) {
+        console.error('Error saving extraction:', error);
+        this.spa.showNotification(`Failed to save extraction: ${error.message}`, 'error');
+        throw error;
+      }
+    };
+
+    // Load all extractions
+    this.spa.loadExtractions = async () => {
+      try {
+        const response = await fetch('/api/extractions');
+        const data = await response.json();
+        
+        if (response.ok) {
+          return data.extractions;
+        } else {
+          throw new Error(data.error || 'Failed to load extractions');
+        }
+      } catch (error) {
+        console.error('Error loading extractions:', error);
+        this.spa.showNotification('Failed to load extractions', 'error');
+        return [];
+      }
+    };
+
+    // Load specific extraction
+    this.spa.loadExtraction = async (extractionId) => {
+      try {
+        const response = await fetch(`/api/extractions/${extractionId}`);
+        const data = await response.json();
+        
+        if (response.ok) {
+          return data.extraction;
+        } else {
+          throw new Error(data.error || 'Extraction not found');
+        }
+      } catch (error) {
+        console.error('Error loading extraction:', error);
+        this.spa.showNotification(`Failed to load extraction: ${error.message}`, 'error');
+        throw error;
+      }
+    };
+
+    // Delete extraction
+    this.spa.deleteExtraction = async (extractionId) => {
+      try {
+        const response = await fetch(`/api/extractions/${extractionId}`, {
+          method: 'DELETE'
+        });
+        
+        if (response.ok) {
+          this.spa.showNotification('Extraction deleted successfully!', 'success');
+          return true;
+        } else {
+          const error = await response.json();
+          throw new Error(error.error || 'Failed to delete extraction');
+        }
+      } catch (error) {
+        console.error('Error deleting extraction:', error);
+        this.spa.showNotification(`Failed to delete extraction: ${error.message}`, 'error');
+        return false;
+      }
+    };
+
+    // Revisit extraction (load keyframes back into interface)
+    this.spa.revisitExtraction = async (extractionId) => {
+      try {
+        const extraction = await this.spa.loadExtraction(extractionId);
+        if (extraction) {
+          // Navigate to extract view and load the keyframes
+          this.spa.navigate('extract');
+          
+          // Wait for view to load, then populate with extraction data
+          setTimeout(() => {
+            this.spa.displayExtractionResults(extraction);
+            this.spa.showNotification('Extraction loaded successfully!', 'success');
+          }, 500);
+          
+          return extraction;
+        }
+      } catch (error) {
+        console.error('Error revisiting extraction:', error);
+        // Error already handled in loadExtraction
       }
     };
   }
